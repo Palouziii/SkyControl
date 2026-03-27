@@ -2,21 +2,18 @@ import { NavLink } from "react-router-dom";
 import "../css/SideBar.css";
 import "../css/Footer.css";
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   return (
     <div className="layout-container">
       <header className="sidebar-container shadow">
         <div className="d-flex align-items-center mb-4 ps-2">
           <div className="brand-icon-box me-3">
-            <i className="bi bi-airplane-fill text-white fs-4"></i>
+            <i className="bi bi-bezier2 text-white fs-4"></i>
           </div>
           <div className="lh-1">
-            <h5 className="m-0 fw-bold">SkyControl</h5>
-            <small
-              className="text-secondary fw-bold text-uppercase"
-              style={{ fontSize: "10px", letterSpacing: "1px" }}
-            >
-              Airport Ops
+            <h5 className="m-0 fw-bold">SkyControl Paris</h5>
+            <small className="text-secondary fw-bold text-uppercase">
+              Airport
             </small>
           </div>
         </div>

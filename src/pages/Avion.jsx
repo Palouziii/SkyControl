@@ -1,5 +1,11 @@
-export default function Avion(){
-    return(
-        <div>TEST AVION</div>
-    )
+import AvionCard from "../components/Avion/AvionCard";
+
+export default function Avion() {
+  return (
+    <>
+      <section>
+        <AvionCard />
+      </section>
+    </>
+  );
 }
