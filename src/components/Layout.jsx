@@ -1,9 +1,8 @@
-import { NavLink } from "react-router-dom"; // On change Link par NavLink
+import { NavLink } from "react-router-dom";
 import "../css/SideBar.css";
 import "../css/Footer.css";
 
-export default function Layout() {
-  // N'oublie pas {children} pour afficher tes pages
+export default function Layout({children}) {
   return (
     <div className="layout-container">
       <header className="sidebar-container shadow">
@@ -25,7 +24,6 @@ export default function Layout() {
         <hr className="opacity-25" />
 
         <nav className="nav nav-pills flex-column mb-auto gap-2">
-          {/* Utilise NavLink ici */}
           <NavLink to="/" className="nav-link">
             <i className="bi bi-grid-1x2 me-3"></i> Home
           </NavLink>
@@ -54,11 +52,8 @@ export default function Layout() {
         </div>
       </header>
 
-      <div
-        className="content-area d-flex flex-column"
-        style={{ marginLeft: "280px", minHeight: "100vh" }}
-      >
-        <main className="flex-grow-1 p-4"></main>
+      <div className="content-area d-flex flex-column">
+        <main className="flex-grow-1 p-4">{children}</main>
 
         <footer className="footer-main mt-auto">
           <div className="container-fluid d-flex justify-content-between align-items-center">
@@ -68,12 +63,9 @@ export default function Layout() {
             </div>
             <div className="d-flex gap-4">
               <NavLink to="#" className="text-decoration-none text-muted">
-                Support
+                Reserved & Confidential
               </NavLink>
-              <NavLink to="#" className="text-decoration-none text-muted">
-                Confidentialité
-              </NavLink>
-              <span className="text-secondary">v2.4</span>
+              <span className="text-secondary">v26.7</span>
             </div>
           </div>
         </footer>
