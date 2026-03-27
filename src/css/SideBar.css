@@ -1,0 +1,66 @@
+.sidebar-container {
+  width: 280px;
+  height: 100vh;
+  background-color: #0f172a;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  color: white;
+}
+
+.sidebar-container .nav-link {
+  font-size: 1.1rem !important; 
+  font-weight: 500;            
+  padding: 12px 20px !important; 
+  color: #94a3b8 !important;
+}
+
+.sidebar-container .bi {
+  font-size: 1.3rem !important; *
+}
+
+.sidebar-container h5 {
+  font-size: 1.25rem !important;
+}
+
+.sidebar-container small {
+  font-size: 0.75rem !important;
+  letter-spacing: 1.5px;
+}
+
+.nav-link.active {
+  background-color: #000000 !important;
+  color: white !important;
+}
+
+.brand-icon-box {
+  background-color: #2563eb;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.main-wrapper {
+  margin-left: 280px;
+  width: 100%;
+}
+
+.sidebar-container .nav-link:hover:not(.active) {
+  background-color: rgba(37, 99, 235, 0.1) !important; 
+  color: #2563eb !important; 
+  transform: translateX(5px);
+}
+
+.sidebar-container .nav-link.active {
+  background-color: #2563eb !important; 
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); 
+}
+
+.sidebar-container .nav-link {
+  transition: all 0.2s ease-in-out !important;
+}
