@@ -1,0 +1,149 @@
+/* src/css/AvionCard.css */
+
+.avion-page-container {
+  padding: 2rem;
+  background-color: #f8fafc;
+}
+
+.fw-black { font-weight: 900; font-size: 2.5rem; color: #0f172a; }
+
+/* Bouton Premium */
+.btn-premium {
+  background: #0f172a;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 100px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+}
+
+.btn-premium:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Grille */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Carte Luxe */
+.fleet-card {
+  background: white;
+  border-radius: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.fleet-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+
+.fleet-card-inner { padding: 2rem; }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.compagnie-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 2px;
+}
+
+.reg-number {
+  font-family: 'Monaco', monospace;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #2563eb;
+}
+
+.card-mid {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.plane-icon-wrapper {
+  font-size: 2.5rem;
+  color: #0f172a;
+}
+
+.model-info h3 {
+  font-weight: 800;
+  margin: 0;
+  color: #0f172a;
+}
+
+.status-indicator {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+}
+
+/* Barre de progression custom */
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.progress-bar-custom {
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  border-radius: 10px;
+}
+
+/* Boutons d'actions */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.circle-btn:hover { background: #0f172a; color: white; border-color: #0f172a; }
+.circle-btn.delete:hover { background: #ef4444; border-color: #ef4444; }
