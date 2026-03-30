@@ -20,7 +20,6 @@ export default function AvionCard() {
         </button>
       </header>
 
-      {/* Grille Ultra-Moderne */}
       <div className="fleet-grid">
         {avions.map((avion) => (
           <div className="fleet-card" key={avion.immatriculation}>

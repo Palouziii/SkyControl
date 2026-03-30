@@ -1,7 +1,8 @@
-import {Avion} from "../model/Avion"
-import {Billet} from "../model/Billet"
-import {Passager} from "../model/Passager"
-import {Personnel} from "../model/Personnel"
+import { Avion } from "../model/Avion"
+import { Billet } from "../model/Billet"
+import { Passager } from "../model/Passager"
+import { Personnel } from "../model/Personnel"
+import { Vol } from "../model/Vol";
 
 export const ListeAvions = [
     new Avion("F-HPJK", 516, "Airbus A380", "Air France"),
@@ -56,4 +57,18 @@ export const ListePersonnel = [
     new Personnel ("STAFF-11", "Fontaine", "David", "Technicien", "+33 7 45 67 89 01"),
     new Personnel ("STAFF-12", "Guerin", "Sophie", "Hôtesse", "+33 6 32 21 10 00"),
     new Personnel ("STAFF-13", "Dumas", "Nicolas", "Co-pilote", "+33 6 11 22 99 88")
+];
+
+export const ListeVols = [
+    new Vol("AF-2024", "Air France", "Paris (CDG)", "New York (JFK)", "2026-04-12 10:30", "2026-04-12 14:00"),
+    new Vol("EK-088", "Emirates", "Dubaï (DXB)", "Paris (CDG)", "2026-04-13 08:15", "2026-04-13 13:45"),
+    new Vol("SQ-334", "Singapore Airlines", "Singapour (SIN)", "Tokyo (HND)", "2026-04-14 23:55", "2026-04-15 07:30"),
+    new Vol("BA-175", "British Airways", "Londres (LHR)", "Los Angeles (LAX)", "2026-04-15 11:00", "2026-04-15 14:20"),
+    new Vol("QR-014", "Qatar Airways", "Doha (DOH)", "Casablanca (CMN)", "2026-04-16 02:40", "2026-04-16 08:50"),
+    new Vol("LH-400", "Lufthansa", "Francfort (FRA)", "New York (JFK)", "2026-04-17 11:10", "2026-04-17 13:40"),
+    new Vol("AM-001", "Aeromexico", "Mexico (MEX)", "Paris (CDG)", "2026-04-18 23:50", "2026-04-19 18:00"),
+    new Vol("TK-001", "Turkish Airlines", "Istanbul (IST)", "Dubaï (DXB)", "2026-04-20 13:30", "2026-04-20 18:15"),
+    new Vol("CX-260", "Cathay Pacific", "Hong Kong (HKG)", "Paris (CDG)", "2026-04-21 00:45", "2026-04-21 07:35"),
+    new Vol("QF-002", "Qantas", "Londres (LHR)", "Sydney (SYD)", "2026-04-22 21:05", "2026-04-24 06:15"),
+    new Vol("TN-008", "Air Tahiti Nui", "Paris (CDG)", "Papeete (PPT)", "2026-04-25 11:35", "2026-04-26 05:20")
 ];

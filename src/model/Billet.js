@@ -1,6 +1,6 @@
 export class Billet{
-    constructor(id_billet, passager, vol, classe, siege, prix, date){
-        this.id_billet = id_billet
+    constructor(ref_billet, passager, vol, classe, siege, prix, date){
+        this.ref_billet = ref_billet
         this.passager = passager
         this.vol = vol
         this.classe = classe

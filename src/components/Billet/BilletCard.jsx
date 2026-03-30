@@ -23,7 +23,6 @@ export default function BilletCard() {
         </button>
       </div>
 
-      {/* SECTION ACHAT CLIENT MODIFIÉE */}
       {showAchat && (
         <div className="card shadow-sm mb-5 border-0 animate__animated animate__fadeInDown">
           <div className="card-header bg-dark text-white fw-bold py-3">
@@ -31,7 +30,6 @@ export default function BilletCard() {
           </div>
           <div className="card-body p-4">
             <form className="row g-3">
-              {/* Association Passager */}
               <div className="col-md-3">
                 <label className="form-label fw-bold small text-uppercase">
                   Passager
@@ -40,7 +38,7 @@ export default function BilletCard() {
                   <option>Choisir le passager...</option>
                 </select>
               </div>
-              {/* Association Vol */}
+
               <div className="col-md-3">
                 <label className="form-label fw-bold small text-uppercase">
                   Vol
@@ -49,7 +47,7 @@ export default function BilletCard() {
                   <option>Choisir le vol...</option>
                 </select>
               </div>
-              {/* Attribut Classe */}
+
               <div className="col-md-2">
                 <label className="form-label fw-bold small text-uppercase">
                   Classe
@@ -60,7 +58,7 @@ export default function BilletCard() {
                   <option>Economy</option>
                 </select>
               </div>
-              {/* Attribut Siège */}
+
               <div className="col-md-2">
                 <label className="form-label fw-bold small text-uppercase">
                   Siège
@@ -71,7 +69,7 @@ export default function BilletCard() {
                   placeholder="Ex: 12B"
                 />
               </div>
-              {/* Attribut Prix */}
+
               <div className="col-12 text-end mt-4">
                 <button
                   type="submit"
@@ -88,7 +86,7 @@ export default function BilletCard() {
       {/* TABLEAU GESTION ADMIN (Style original préservé) */}
       <div className="card border-0 shadow-sm rounded-3">
         <table className="table table-hover align-middle mb-0">
-          <thead className="table-light">
+          <thead className="table-light rounded">
             <tr>
               <th className="ps-4 py-3">ID Billet</th>
               <th>Passager</th>
@@ -101,8 +99,10 @@ export default function BilletCard() {
           </thead>
           <tbody>
             {billets.map((billet) => (
-              <tr key={billet.id_billet}>
-                <td className="ps-4 fw-bold text-primary">{billet.id_billet}</td>
+              <tr key={billet.ref_billet}>
+                <td className="ps-4 fw-bold text-primary">
+                  {billet.ref_billet}
+                </td>
                 <td>{billet.passager}</td>
                 <td>
                   <span className="badge bg-dark px-2">{billet.vol}</span>

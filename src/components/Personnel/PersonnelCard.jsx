@@ -77,7 +77,7 @@ export default function PersonnelCard() {
 
       {/* Tableau du Personnel */}
       <div className="card border-0 shadow-sm">
-        <div className="table-responsive">
+        <div className="table-responsive rounded">
           <table className="table table-hover align-middle mb-0">
             <thead className="table-light">
               <tr>
@@ -117,7 +117,7 @@ export default function PersonnelCard() {
                       {personnel.fonction}
                     </span>
                   </td>
-                  <td className="fw-mono small">{personnel.tel}</td>
+                  <td className="fw-mono small">{personnel.telephone}</td>
                   <td className="text-center">
                     <button className="btn btn-outline-dark btn-sm fw-bold me-2">
                       ÉDITER

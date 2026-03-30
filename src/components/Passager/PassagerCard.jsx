@@ -95,7 +95,7 @@ export default function PassagerCard() {
 
       {/* Tableau des Passagers */}
       <div className="card border-0 shadow-sm rounded-3">
-        <div className="table-responsive">
+        <div className="table-responsive rounded">
           <table className="table table-hover align-middle mb-0">
             <thead className="table-light">
               <tr>
@@ -124,7 +124,7 @@ export default function PassagerCard() {
                     </div>
                     <div className="small text-muted">
                       <i className="bi bi-telephone me-2"></i>
-                      {passager.tel}
+                      {passager.telephone}
                     </div>
                   </td>
                   <td className="text-center">
