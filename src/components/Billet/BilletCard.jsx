@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "../../css/BilletCard.css";
 import BilletService from "../../services/BilletService";
+import VolService from "../../services/VolService";
 
 export default function BilletCard() {
   const [showAchat, setShowAchat] = useState(false);
   const billets = BilletService.getAll();
+  const vols = VolService.getAll();
 
   return (
     <div className="container-fluid p-4">
@@ -29,53 +31,76 @@ export default function BilletCard() {
             SÉLECTION DES OPTIONS DE VOYAGE
           </div>
           <div className="card-body p-4">
-            <form className="row g-3">
+            <form className="row g-4">
               <div className="col-md-3">
-                <label className="form-label fw-bold small text-uppercase">
-                  Passager
-                </label>
-                <select className="form-select border-2">
-                  <option>Choisir le passager...</option>
+                <label className="label-form-prestige">NOM DU PASSAGER</label>
+                <input
+                  type="text"
+                  className="form-control-prestige"
+                  placeholder="Ex: MARTIN"
+                />
+              </div>
+              <div className="col-md-3">
+                <label className="label-form-prestige">PRÉNOM</label>
+                <input
+                  type="text"
+                  className="form-control-prestige"
+                  placeholder="Ex: Jean"
+                />
+              </div>
+              <div className="col-md-3">
+                <label className="label-form-prestige">NATIONALITÉ</label>
+                <input
+                  type="text"
+                  className="form-control-prestige"
+                  placeholder="Ex: FRANCE"
+                />
+              </div>
+              <div className="col-md-3">
+                <label className="label-form-prestige">SÉLECTION DU VOL</label>
+                <select className="form-control-prestige">
+                  <option value="">Choisir un vol...</option>
+                  {vols.map((vol) => (
+                    <option key={vol.ref_vol} value={vol.ref_vol}>
+                      {vol.ref_vol} - {vol.depart.split(" ")[0]} /{" "}
+                      {vol.arrivé.split(" ")[0]}
+                    </option>
+                  ))}
                 </select>
               </div>
-
               <div className="col-md-3">
-                <label className="form-label fw-bold small text-uppercase">
-                  Vol
-                </label>
-                <select className="form-select border-2">
-                  <option>Choisir le vol...</option>
-                </select>
-              </div>
-
-              <div className="col-md-2">
-                <label className="form-label fw-bold small text-uppercase">
-                  Classe
-                </label>
-                <select className="form-select border-2">
-                  <option>First</option>
-                  <option>Business</option>
+                <label className="label-form-prestige">CLASSE</label>
+                <select className="form-control-prestige">
+                  <option>First Class</option>
+                  <option>Business Class</option>
                   <option>Economy</option>
                 </select>
               </div>
-
+              <div className="col-md-3">
+                <label className="label-form-prestige">FRANCHISE BAGAGE</label>
+                <select className="form-control-prestige" name="bagage">
+                  <option value="">Sélectionner le poids...</option>
+                  <option value="12">Cabine uniquement (≤ 12 Kg)</option>
+                  <option value="15">Soute Light (≤ 15 Kg)</option>
+                  <option value="23">Soute Standard (≤ 23 Kg)</option>
+                  <option value="32">Soute Premium (≤ 32 Kg)</option>
+                  <option value="extra">Excédent Hors Gabarit (≥ 32 Kg)</option>
+                </select>
+              </div>
               <div className="col-md-2">
-                <label className="form-label fw-bold small text-uppercase">
-                  Siège
-                </label>
+                <label className="label-form-prestige">SIÈGE</label>
                 <input
                   type="text"
-                  className="form-control border-2"
-                  placeholder="Ex: 12B"
+                  className="form-control-prestige"
+                  placeholder="Ex: 12A"
                 />
               </div>
-
-              <div className="col-12 text-end mt-4">
+              <div className="col-md-8 d-flex align-items-end">
                 <button
                   type="submit"
-                  className="btn btn-success px-5 fw-bold py-2"
+                  className="btn btn-primary px-5 py-2 fw-bold rounded-3 shadow-sm"
                 >
-                  VALIDER L'ACHAT
+                  VALIDER L'ACHAT ET ÉMETTRE
                 </button>
               </div>
             </form>

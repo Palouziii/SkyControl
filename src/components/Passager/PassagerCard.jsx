@@ -19,12 +19,6 @@ export default function PassagerCard() {
               </span>
               <p className="h4 fw-black mb-0">{passagers.length}</p>
             </div>
-            <div className="stat-simple border-start ps-4">
-              <span className="text-muted small text-uppercase fw-bold">
-                Nationalités
-              </span>
-              <p className="h4 fw-black mb-0">12</p>
-            </div>
           </div>
         </div>
         <button

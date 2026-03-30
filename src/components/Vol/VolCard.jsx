@@ -139,7 +139,7 @@ export default function VolCard() {
                   </div>
 
                   <div className="plane-divider px-3">
-                    <i className="bi bi-airplane-engines-fill fs-2 text-primary opacity-25"></i>
+                    <i className="bi bi-airplane-engines-fill fs-2 text-primary opacity-50"></i>
                   </div>
 
                   <div className="location-prestige">
