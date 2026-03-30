@@ -1,0 +1,44 @@
+/* src/css/Passager.css */
+
+.fw-black {
+    font-weight: 900;
+}
+
+.stat-simple .h4 {
+    color: #0f172a;
+}
+
+/* Style de la table similaire à Avion/Billet */
+.table thead th {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #64748b;
+    border-top: none;
+    padding: 15px 10px;
+}
+
+.table tbody td {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+}
+
+/* Boutons d'action */
+.btn-outline-dark, .btn-outline-danger {
+    font-size: 0.7rem;
+    border-width: 1px;
+}
+
+/* Animation */
+.animate__fadeIn {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px;
+}

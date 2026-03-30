@@ -1,5 +1,9 @@
-export default function Passager(){
-    return(
-        <div>TEST PASSAGER</div>
-    )
+import PassagerCard from "../components/Passager/PassagerCard";
+
+export default function Passager() {
+  return (
+    <div>
+      <PassagerCard />
+    </div>
+  );
 }
