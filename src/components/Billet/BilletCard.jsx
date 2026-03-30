@@ -1,29 +1,10 @@
 import { useState } from "react";
 import "../../css/BilletCard.css";
+import BilletService from "../../services/BilletService";
 
-export default function Billet() {
+export default function BilletCard() {
   const [showAchat, setShowAchat] = useState(false);
-
-  const billets = [
-    {
-      id: "TK-9921",
-      passager: "Jean Dupont",
-      vol: "AF456",
-      classe: "First",
-      siege: "01A",
-      prix: 1200,
-      date: "2026-03-27",
-    },
-    {
-      id: "TK-8842",
-      passager: "Sophie Martin",
-      vol: "KL123",
-      classe: "Business",
-      siege: "12C",
-      prix: 850,
-      date: "2026-03-28",
-    },
-  ];
+  const billets = BilletService.getAll();
 
   return (
     <div className="container-fluid p-4">
