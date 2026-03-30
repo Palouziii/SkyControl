@@ -101,8 +101,8 @@ export default function BilletCard() {
           </thead>
           <tbody>
             {billets.map((b) => (
-              <tr key={b.id}>
-                <td className="ps-4 fw-bold text-primary">{b.id}</td>
+              <tr key={b.id_billet}>
+                <td className="ps-4 fw-bold text-primary">{b.id_billet}</td>
                 <td>{b.passager}</td>
                 <td>
                   <span className="badge bg-dark px-2">{b.vol}</span>

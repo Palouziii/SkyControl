@@ -1,15 +1,10 @@
 import { useState } from "react";
 import "../../css/PassagerCard.css";
+import PassagerService from "../../services/PassagerService";
 
 export default function PassagerCard() {
   const [showAdd, setShowAdd] = useState(false);
-
-  // Données fictives basées sur ton MCD
-  const [passagers] = useState([
-    { id: "P-001", nom: "Dupont", prenom: "Jean", nationalite: "Française", mail: "j.dupont@mail.com", tel: "+33 6 12 34 56 78" },
-    { id: "P-002", nom: "Martin", prenom: "Sophie", nationalite: "Belge", mail: "s.martin@mail.com", tel: "+32 4 70 11 22 33" },
-    { id: "P-003", nom: "Watson", prenom: "Emma", nationalite: "Britannique", mail: "e.watson@mail.com", tel: "+44 20 7946 0958" },
-  ]);
+  const passagers = PassagerService.getAll();
 
   return (
     <div className="container-fluid p-4">

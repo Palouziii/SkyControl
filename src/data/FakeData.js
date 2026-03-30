@@ -27,3 +27,15 @@ export const ListeBillets = [
     new Billet("TK-107", "Julien Clerc", "KL123", "Economy", "45A", 310, "2026-04-15"),
     new Billet("TK-108", "Marie Curie", "LH509", "Business", "15E", 920, "2026-04-16")
 ];
+
+export const ListePassagers = [
+    { id: "P-001", nom: "Dupont", prenom: "Jean", nationalite: "Française", mail: "j.dupont@mail.com", tel: "+33 6 12 34 56 78" },
+    { id: "P-002", nom: "Alves", prenom: "Maria", nationalite: "Portugaise", mail: "m.alves@skymail.pt", tel: "+351 912 345 678" },
+    { id: "P-003", nom: "Chen", prenom: "Li", nationalite: "Chinoise", mail: "l.chen@global.cn", tel: "+86 138 0000 0000" },
+    { id: "P-004", nom: "Müller", prenom: "Hans", nationalite: "Allemande", mail: "h.muller@berlin-air.de", tel: "+49 151 23456789" },
+    { id: "P-005", nom: "Smith", prenom: "John", nationalite: "Américaine", mail: "j.smith@uscloud.com", tel: "+1 202 555 0123" },
+    { id: "P-006", nom: "García", prenom: "Elena", nationalite: "Espagnole", mail: "e.garcia@madrid.es", tel: "+34 600 000 000" },
+    { id: "P-007", nom: "Russo", prenom: "Giuseppe", nationalite: "Italienne", mail: "g.russo@italy.it", tel: "+39 02 1234567" },
+    { id: "P-008", nom: "Abadi", prenom: "Amira", nationalite: "Marocaine", mail: "a.abadi@casa.ma", tel: "+212 661 123456" },
+    { id: "P-009", nom: "Tanaka", prenom: "Yuki", nationalite: "Japonaise", mail: "y.tanaka@tokyo.jp", tel: "+81 90 1234 5678" }
+];
