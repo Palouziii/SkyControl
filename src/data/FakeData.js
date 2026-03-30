@@ -1,5 +1,7 @@
-import { Avion } from "../model/Avion"
-import { Billet } from "../model/Billet"
+import {Avion} from "../model/Avion"
+import {Billet} from "../model/Billet"
+import {Passager} from "../model/Passager"
+import {Personnel} from "../model/Personnel"
 
 export const ListeAvions = [
     new Avion("F-HPJK", 516, "Airbus A380", "Air France"),
@@ -29,29 +31,29 @@ export const ListeBillets = [
 ];
 
 export const ListePassagers = [
-    { id: "P-001", nom: "Dupont", prenom: "Jean", nationalite: "Française", mail: "j.dupont@mail.com", tel: "+33 6 12 34 56 78" },
-    { id: "P-002", nom: "Alves", prenom: "Maria", nationalite: "Portugaise", mail: "m.alves@skymail.pt", tel: "+351 912 345 678" },
-    { id: "P-003", nom: "Chen", prenom: "Li", nationalite: "Chinoise", mail: "l.chen@global.cn", tel: "+86 138 0000 0000" },
-    { id: "P-004", nom: "Müller", prenom: "Hans", nationalite: "Allemande", mail: "h.muller@berlin-air.de", tel: "+49 151 23456789" },
-    { id: "P-005", nom: "Smith", prenom: "John", nationalite: "Américaine", mail: "j.smith@uscloud.com", tel: "+1 202 555 0123" },
-    { id: "P-006", nom: "García", prenom: "Elena", nationalite: "Espagnole", mail: "e.garcia@madrid.es", tel: "+34 600 000 000" },
-    { id: "P-007", nom: "Russo", prenom: "Giuseppe", nationalite: "Italienne", mail: "g.russo@italy.it", tel: "+39 02 1234567" },
-    { id: "P-008", nom: "Abadi", prenom: "Amira", nationalite: "Marocaine", mail: "a.abadi@casa.ma", tel: "+212 661 123456" },
-    { id: "P-009", nom: "Tanaka", prenom: "Yuki", nationalite: "Japonaise", mail: "y.tanaka@tokyo.jp", tel: "+81 90 1234 5678" }
+    new Passager ("P-001", "Dupont", "Jean", "Française", "j.dupontcom", "+33 6 12 34 56 78"),
+    new Passager ("P-002", "Alves", "Maria", "Portugaise", "m.alves@skpt", "+351 912 345 678"),
+    new Passager ("P-003", "Chen", "Li", "Chinoise", "l.chen@global.cn", "+86 138 0000 0000"),
+    new Passager ("P-004", "Müller", "Hans", "Allemande", "h.muller@berlin-air.de", "+49 151 23456789"),
+    new Passager ("P-005", "Smith", "John", "Américaine", "j.smith@uscloud.com", "+1 202 555 0123"),
+    new Passager ("P-006", "García", "Elena", "Espagnole", "e.garcia@madrid.es", "+34 600 000 000"),
+    new Passager ("P-007", "Russo", "Giuseppe", "Italienne", "g.russo@italy.it", "+39 02 1234567"),
+    new Passager ("P-008", "Abadi", "Amira", "Marocaine", "a.abadi@casa.ma", "+212 661 123456"),
+    new Passager ("P-009", "Tanaka", "Yuki", "Japonaise", "y.tanaka@tokyo.jp", "+81 90 1234 5678")
 ];
 
 export const ListePersonnel = [
-    { id: "STAFF-01", nom: "Leclerc", prenom: "Marc", fonction: "Pilote", tel: "+33 6 00 11 22 33" },
-    { id: "STAFF-02", nom: "Dubois", prenom: "Julie", fonction: "Hôtesse", tel: "+33 6 44 55 66 77" },
-    { id: "STAFF-03", nom: "Moreau", prenom: "Alain", fonction: "Technicien", tel: "+33 6 88 99 00 11" },
-    { id: "STAFF-04", nom: "Sartre", prenom: "Paul", fonction: "Steward", tel: "+33 7 12 34 56 78" },
-    { id: "STAFF-05", nom: "Lefebvre", prenom: "Thomas", fonction: "Co-pilote", tel: "+33 6 12 98 45 67" },
-    { id: "STAFF-06", nom: "Girard", prenom: "Marine", fonction: "Hôtesse", tel: "+33 6 55 44 33 22" },
-    { id: "STAFF-07", nom: "Petit", prenom: "Lucas", fonction: "Bagagiste", tel: "+33 7 88 77 66 55" },
-    { id: "STAFF-08", nom: "Rousseau", prenom: "Chloé", fonction: "Pilote", tel: "+33 6 21 43 65 87" },
-    { id: "STAFF-09", nom: "Mercier", prenom: "Benoît", fonction: "Sécurité", tel: "+33 6 09 08 07 06" },
-    { id: "STAFF-10", nom: "Blanc", prenom: "Alice", fonction: "Steward", tel: "+33 6 76 54 32 10" },
-    { id: "STAFF-11", nom: "Fontaine", prenom: "David", fonction: "Technicien", tel: "+33 7 45 67 89 01" },
-    { id: "STAFF-12", nom: "Guerin", prenom: "Sophie", fonction: "Hôtesse", tel: "+33 6 32 21 10 00" },
-    { id: "STAFF-13", nom: "Dumas", prenom: "Nicolas", fonction: "Co-pilote", tel: "+33 6 11 22 99 88" }
+    new Personnel ("STAFF-01", "Leclerc", "Marc", "Pilote", "+33 6 00 11 22 33"),
+    new Personnel ("STAFF-02", "Dubois", "Julie", "Hôtesse", "+33 6 44 55 66 77"),
+    new Personnel ("STAFF-03", "Moreau", "Alain", "Technicien", "+33 6 88 99 00 11"),
+    new Personnel ("STAFF-04", "Sartre", "Paul", "Steward", "+33 7 12 34 56 78"),
+    new Personnel ("STAFF-05", "Lefebvre", "Thomas", "Co-pilote", "+33 6 12 98 45 67"),
+    new Personnel ("STAFF-06", "Girard", "Marine", "Hôtesse", "+33 6 55 44 33 22"),
+    new Personnel ("STAFF-07", "Petit", "Lucas", "Bagagiste", "+33 7 88 77 66 55"),
+    new Personnel ("STAFF-08", "Rousseau", "Chloé", "Pilote", "+33 6 21 43 65 87"),
+    new Personnel ("STAFF-09", "Mercier", "Benoît", "Sécurité", "+33 6 09 08 07 06"),
+    new Personnel ("STAFF-10", "Blanc", "Alice", "Steward", "+33 6 76 54 32 10"),
+    new Personnel ("STAFF-11", "Fontaine", "David", "Technicien", "+33 7 45 67 89 01"),
+    new Personnel ("STAFF-12", "Guerin", "Sophie", "Hôtesse", "+33 6 32 21 10 00"),
+    new Personnel ("STAFF-13", "Dumas", "Nicolas", "Co-pilote", "+33 6 11 22 99 88")
 ];

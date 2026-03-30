@@ -90,9 +90,9 @@ export default function PersonnelCard() {
             </thead>
             <tbody>
               {personnels.map((personnel) => (
-                <tr key={personnel.id}>
+                <tr key={personnel.id_personnel}>
                   <td className="ps-4 fw-bold text-secondary small">
-                    {personnel.id}
+                    {personnel.id_personnel}
                   </td>
                   <td>
                     <div className="d-flex align-items-center">

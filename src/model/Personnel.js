@@ -1,5 +1,6 @@
 export class Personnel{
-    constructor(nom, prenom, fonction, telephone){
+    constructor(id_personnel, nom, prenom, fonction, telephone){
+        this.id_personnel = id_personnel
         this.nom = nom
         this.prenom = prenom
         this.fonction = fonction
