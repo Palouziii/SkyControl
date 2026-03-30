@@ -79,17 +79,17 @@ export default function PassagerCard() {
               </tr>
             </thead>
             <tbody>
-              {passagers.map((p) => (
-                <tr key={p.id}>
-                  <td className="ps-4 fw-bold text-primary">{p.id}</td>
+              {passagers.map((passager) => (
+                <tr key={passager.id}>
+                  <td className="ps-4 fw-bold text-primary">{passager.id}</td>
                   <td>
-                    <div className="fw-bold">{p.nom.toUpperCase()}</div>
-                    <div className="text-muted small">{p.prenom}</div>
+                    <div className="fw-bold">{passager.nom.toUpperCase()}</div>
+                    <div className="text-muted small">{passager.prenom}</div>
                   </td>
-                  <td>{p.nationalite}</td>
+                  <td>{passager.nationalite}</td>
                   <td>
-                    <div className="small"><i className="bi bi-envelope me-2"></i>{p.mail}</div>
-                    <div className="small text-muted"><i className="bi bi-telephone me-2"></i>{p.tel}</div>
+                    <div className="small"><i className="bi bi-envelope me-2"></i>{passager.mail}</div>
+                    <div className="small text-muted"><i className="bi bi-telephone me-2"></i>{passager.tel}</div>
                   </td>
                   <td className="text-center">
                     <button className="btn btn-outline-dark btn-sm fw-bold me-2 px-3">ÉDITER</button>

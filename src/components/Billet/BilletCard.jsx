@@ -100,22 +100,22 @@ export default function BilletCard() {
             </tr>
           </thead>
           <tbody>
-            {billets.map((b) => (
-              <tr key={b.id_billet}>
-                <td className="ps-4 fw-bold text-primary">{b.id_billet}</td>
-                <td>{b.passager}</td>
+            {billets.map((billet) => (
+              <tr key={billet.id_billet}>
+                <td className="ps-4 fw-bold text-primary">{billet.id_billet}</td>
+                <td>{billet.passager}</td>
                 <td>
-                  <span className="badge bg-dark px-2">{b.vol}</span>
+                  <span className="badge bg-dark px-2">{billet.vol}</span>
                 </td>
                 <td>
                   <span
-                    className={`badge-classe-simple ${b.classe.toLowerCase()}`}
+                    className={`badge-classe-simple ${billet.classe.toLowerCase()}`}
                   >
-                    {b.classe}
+                    {billet.classe}
                   </span>
                 </td>
-                <td className="fw-bold">{b.siege}</td>
-                <td className="text-success fw-bold">{b.prix} €</td>
+                <td className="fw-bold">{billet.siege}</td>
+                <td className="text-success fw-bold">{billet.prix} €</td>
                 <td className="text-center">
                   <button className="btn btn-outline-dark btn-sm fw-bold me-2">
                     MODIFIER

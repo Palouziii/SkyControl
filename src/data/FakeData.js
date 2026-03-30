@@ -39,3 +39,19 @@ export const ListePassagers = [
     { id: "P-008", nom: "Abadi", prenom: "Amira", nationalite: "Marocaine", mail: "a.abadi@casa.ma", tel: "+212 661 123456" },
     { id: "P-009", nom: "Tanaka", prenom: "Yuki", nationalite: "Japonaise", mail: "y.tanaka@tokyo.jp", tel: "+81 90 1234 5678" }
 ];
+
+export const ListePersonnel = [
+    { id: "STAFF-01", nom: "Leclerc", prenom: "Marc", fonction: "Pilote", tel: "+33 6 00 11 22 33" },
+    { id: "STAFF-02", nom: "Dubois", prenom: "Julie", fonction: "Hôtesse", tel: "+33 6 44 55 66 77" },
+    { id: "STAFF-03", nom: "Moreau", prenom: "Alain", fonction: "Technicien", tel: "+33 6 88 99 00 11" },
+    { id: "STAFF-04", nom: "Sartre", prenom: "Paul", fonction: "Steward", tel: "+33 7 12 34 56 78" },
+    { id: "STAFF-05", nom: "Lefebvre", prenom: "Thomas", fonction: "Co-pilote", tel: "+33 6 12 98 45 67" },
+    { id: "STAFF-06", nom: "Girard", prenom: "Marine", fonction: "Hôtesse", tel: "+33 6 55 44 33 22" },
+    { id: "STAFF-07", nom: "Petit", prenom: "Lucas", fonction: "Bagagiste", tel: "+33 7 88 77 66 55" },
+    { id: "STAFF-08", nom: "Rousseau", prenom: "Chloé", fonction: "Pilote", tel: "+33 6 21 43 65 87" },
+    { id: "STAFF-09", nom: "Mercier", prenom: "Benoît", fonction: "Sécurité", tel: "+33 6 09 08 07 06" },
+    { id: "STAFF-10", nom: "Blanc", prenom: "Alice", fonction: "Steward", tel: "+33 6 76 54 32 10" },
+    { id: "STAFF-11", nom: "Fontaine", prenom: "David", fonction: "Technicien", tel: "+33 7 45 67 89 01" },
+    { id: "STAFF-12", nom: "Guerin", prenom: "Sophie", fonction: "Hôtesse", tel: "+33 6 32 21 10 00" },
+    { id: "STAFF-13", nom: "Dumas", prenom: "Nicolas", fonction: "Co-pilote", tel: "+33 6 11 22 99 88" }
+];
