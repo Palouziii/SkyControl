@@ -1,5 +1,9 @@
-export default function Personnel(){
-    return(
-        <div>TEST PERSONNEL</div>
-    )
+import PersonnelCard from "../components/Personnel/PersonnelCard.jsx";
+
+export default function Personnel() {
+  return (
+    <div>
+      <PersonnelCard />
+    </div>
+  );
 }
