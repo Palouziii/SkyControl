@@ -35,10 +35,10 @@ export default function Avion() {
     });
   };
 
-const handleRemove = (immatriculation) => {
+  const handleRemove = (immatriculation) => {
     const updatedList = avionService.remove(immatriculation);
-    setAvions([...updatedList]); 
-};
+    setAvions([...updatedList]);
+  };
 
   return (
     <div className="avion-page-container rounded p-4">
@@ -52,8 +52,7 @@ const handleRemove = (immatriculation) => {
           </p>
         </div>
         <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
-          <i className={`bi bi-${showAdd ? "x-lg" : "plus-lg"}`}></i>
-          {showAdd ? "ANNULER" : "PLANIFIER UN VOL"}
+          {showAdd ? "ANNULER" : "+ AJOUTER UN AVION"}
         </button>
       </header>
 

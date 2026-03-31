@@ -1,11 +1,134 @@
-.avion-page-container {
-  padding: 2rem;
-  background-color: #f8fafc;
+/* VARIABLES ET BASE */
+:root {
+  --accent-avion: #3b82f6;
+  --dark-avion: #0f172a;
 }
 
-.fw-black { font-weight: 900; font-size: 2.5rem; color: #0f172a; }
+.fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 20px;
+}
 
-/* Bouton Premium */
+/* CARTE PRESTIGE AVION */
+.fleet-card {
+  min-height: 340px;
+  background-color: #000;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fleet-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* IMAGE DE FOND (Cockpit / Engineering) */
+.card-bg-image-avion {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 45%;
+  background-image: url('https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=1000&auto=format&fit=crop'); 
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.8s ease;
+}
+
+.fleet-card:hover .card-bg-image-avion {
+  transform: scale(1.1);
+}
+
+/* OVERLAY TECHNIQUE */
+.card-overlay-avion {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%);
+  z-index: 1;
+}
+
+.fleet-card-inner {
+  z-index: 2;
+  padding: 2rem;
+}
+
+/* TYPOGRAPHIE ET ICONES */
+.fw-black { font-weight: 900; }
+
+.plane-icon-wrapper-avion {
+  font-size: 3rem;
+  color: var(--accent-avion);
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+.compagnie-tag-avion {
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+/* BARRE DE PROGRESSION LUMINEUSE */
+.progress-bar-custom-avion {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-fill-avion {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.8); 
+}
+
+/* BOUTONS ACTIONS GLASSMORPHISM */
+.circle-btn-avion {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.circle-btn-avion:hover {
+  background: white;
+  color: var(--dark-avion);
+  transform: scale(1.1);
+}
+
+.circle-btn-avion.delete:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+}
+
+/* ANIMATION FLOTTANTE POUR L'ICONE */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.status-indicator::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px #10b981;
+}
+
 .btn-premium {
   background: #0f172a;
   color: white;
@@ -22,126 +145,3 @@
   transform: translateY(-2px);
 }
 
-/* Grille */
-.fleet-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-}
-
-/* Carte Luxe */
-.fleet-card {
-  background: white;
-  border-radius: 24px;
-  border: 1px solid rgba(0,0,0,0.05);
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.fleet-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-}
-
-.fleet-card-inner { padding: 2rem; }
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.compagnie-tag {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #64748b;
-  letter-spacing: 2px;
-}
-
-.reg-number {
-  font-family: 'Monaco', monospace;
-  background: #f1f5f9;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  color: #2563eb;
-}
-
-.card-mid {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.plane-icon-wrapper {
-  font-size: 2.5rem;
-  color: #0f172a;
-}
-
-.model-info h3 {
-  font-weight: 800;
-  margin: 0;
-  color: #0f172a;
-}
-
-.status-indicator {
-  font-size: 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.status-indicator::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background: #10b981;
-  border-radius: 50%;
-}
-
-/* Barre de progression custom */
-.progress-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.progress-bar-custom {
-  height: 6px;
-  background: #f1f5f9;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  border-radius: 10px;
-}
-
-/* Boutons d'actions */
-.card-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-}
-
-.circle-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid #e2e8f0;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s;
-}
-
-.circle-btn:hover { background: #0f172a; color: white; border-color: #0f172a; }
-.circle-btn.delete:hover { background: #ef4444; border-color: #ef4444; }

@@ -47,11 +47,8 @@ export default function Personnel() {
             </div>
           </div>
         </div>
-        <button
-          className={`btn ${showAdd ? "btn-secondary" : "btn-dark"} px-4 fw-bold shadow-sm`}
-          onClick={() => setShowAdd(!showAdd)}
-        >
-          {showAdd ? "ANNULER" : "+ AJOUTER MEMBRE"}
+        <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
+          {showAdd ? "ANNULER" : "+ RECRUTER UNE PERSONNE"}
         </button>
       </header>
 

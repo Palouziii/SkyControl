@@ -12,7 +12,7 @@ export default function Passager() {
     prenom: "",
     nationalite: "",
     mail: "",
-    telephone: ""
+    telephone: "",
   });
 
   const add = (e) => {
@@ -29,30 +29,37 @@ export default function Passager() {
   };
 
   const resetForm = () => {
-    setFormData({ nom: "", prenom: "", nationalite: "", mail: "", telephone: "" });
+    setFormData({
+      nom: "",
+      prenom: "",
+      nationalite: "",
+      mail: "",
+      telephone: "",
+    });
   };
 
   return (
     <div className="container-fluid p-4">
       <header className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h1 className="h2 fw-bold text-dark text-uppercase">Gestion des Passagers</h1>
-          <p className="text-muted small">Annuaire et fiches signalétiques des voyageurs</p>
+          <h1 className="h2 fw-bold text-dark text-uppercase">
+            Gestion des Passagers
+          </h1>
+          <p className="text-muted small">
+            Annuaire et fiches signalétiques des voyageurs
+          </p>
         </div>
-        <button
-          className={`btn ${showAdd ? "btn-secondary" : "btn-primary"} px-4 fw-bold shadow-sm`}
-          onClick={() => setShowAdd(!showAdd)}
-        >
+        <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
           {showAdd ? "ANNULER" : "+ NOUVEAU PASSAGER"}
         </button>
       </header>
 
       {showAdd && (
-        <PassagerForm 
-          formData={formData} 
-          setFormData={setFormData} 
-          add={add} 
-          onCancel={() => setShowAdd(false)} 
+        <PassagerForm
+          formData={formData}
+          setFormData={setFormData}
+          add={add}
+          onCancel={() => setShowAdd(false)}
         />
       )}
 

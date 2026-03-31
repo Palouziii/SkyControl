@@ -18,17 +18,17 @@ export const ListeBillets = [
 ];
 
 export const ListePassagers = [
-    new Passager ("PA-001", "Dupont", "Jean", "Française", "j.dupontcom", "+33 6 12 34 56 78"),
-    new Passager ("PA-002", "Alves", "Maria", "Portugaise", "m.alves@skpt", "+351 912 345 678"),
-    new Passager ("PA-003", "Chen", "Li", "Chinoise", "l.chen@global.cn", "+86 138 0000 0000"),
+    new Passager ("PA-1597", "Dupont", "Jean", "Française", "j.dupontcom", "+33 6 12 34 56 78"),
+    new Passager ("PA-5678", "Alves", "Maria", "Portugaise", "m.alves@skpt", "+351 912 345 678"),
+    new Passager ("PA-1237", "Chen", "Li", "Chinoise", "l.chen@global.cn", "+86 138 0000 0000"),
 ];
 
 export const ListePersonnel = [
-    new Personnel ("ST-01", "Leclerc", "Marc", "Pilote", "+33 6 00 11 22 33"),
-    new Personnel ("ST-02", "Dubois", "Julie", "Technicien", "+33 6 44 55 66 77"),
-    new Personnel ("ST-03", "Moreau", "Alain", "Co-pilote", "+33 6 88 99 00 11"),
-    new Personnel ("ST-04", "Gass", "Loan", "Steward", "+33 6 88 99 00 11"),
-    new Personnel ("ST-05", "Villette", "Morgane", "Hôtesse", "+33 6 88 99 00 11"),
+    new Personnel ("ST-6158", "Leclerc", "Marc", "Pilote", "+33 6 00 11 22 33"),
+    new Personnel ("ST-6215", "Dubois", "Julie", "Technicien", "+33 6 44 55 66 77"),
+    new Personnel ("ST-9752", "Moreau", "Alain", "Co-pilote", "+33 6 88 99 00 11"),
+    new Personnel ("ST-3198", "Gass", "Loan", "Steward", "+33 6 88 99 00 11"),
+    new Personnel ("ST-4159", "Villette", "Morgane", "Hôtesse", "+33 6 88 99 00 11"),
 ];
 
 export const ListeVols = [

@@ -52,11 +52,8 @@ export default function Vol() {
           </p>
         </div>
         <div className="header-actions">
-          <button
-            className={`btn ${showAdd ? "btn-secondary" : "btn-dark"} px-4 py-2 fw-bold shadow-sm transition-all`}
-            onClick={() => setShowAdd(!showAdd)}
-          >
-            {showAdd ? "ANNULER" : "+ PLANIFIER UN VOL"}
+          <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
+            {showAdd ? "ANNULER" : "+ CREE UN VOL"}
           </button>
         </div>
       </header>

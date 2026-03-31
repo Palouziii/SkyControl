@@ -51,10 +51,7 @@ export default function Billet() {
             Gestion administrative et émission de billets
           </p>
         </div>
-        <button
-          className={`btn ${showAdd ? "btn-secondary" : "btn-primary"} shadow-sm px-4 fw-bold`}
-          onClick={() => setShowAdd(!showAdd)}
-        >
+        <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
           {showAdd ? "ANNULER" : "ACHETER UN BILLET"}
         </button>
       </div>
