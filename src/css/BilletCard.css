@@ -47,6 +47,19 @@
     animation: fadeInDown 0.4s ease-out;
 }
 
+.badge-classe-simple.first-class {
+    background-color: #ffc107; /* Jaune Prestige */
+    color: #000;
+}
+.badge-classe-simple.business-class {
+    background-color: #0d6efd; /* Bleu */
+    color: #fff;
+}
+.badge-classe-simple.economy {
+    background-color: #6c757d; /* Gris */
+    color: #fff;
+}
+
 @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }

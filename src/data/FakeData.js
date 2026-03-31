@@ -12,7 +12,7 @@ export const ListeAvions = [
 ];
 
 export const ListeBillets = [
-    new Billet("TK-101", "Jean Dupont", "AF456", "First", "01A", 1250, "2026-04-12"),
+    new Billet("TK-101", "Jean Dupont", "AF456", "First class", "01A", 1250, "2026-04-12"),
     new Billet("TK-102", "Sophie Martin", "EK001", "Business", "12C", 850, "2026-04-12"),
     new Billet("TK-103", "Marc Levy", "BA009", "Economy", "34F", 420, "2026-04-13"),
 ];
