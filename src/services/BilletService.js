@@ -1,5 +1,5 @@
 import { ListeBillets } from "../data/FakeData";
-import { Billet } from "../model/Billet"; // Assure-toi que le chemin est correct
+import { Billet } from "../model/Billet"; 
 
 export class BilletService {
   constructor() {

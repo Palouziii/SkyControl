@@ -12,21 +12,23 @@ export const ListeAvions = [
 ];
 
 export const ListeBillets = [
-    new Billet("TK-101", "Jean Dupont", "AF456", "First class", "01A", 1250, "2026-04-12"),
-    new Billet("TK-102", "Sophie Martin", "EK001", "Business", "12C", 850, "2026-04-12"),
-    new Billet("TK-103", "Marc Levy", "BA009", "Economy", "34F", 420, "2026-04-13"),
+    new Billet("TK-1031", "Jean Dupont", "AF456", "First class", "01A", 1250, "2026-04-12"),
+    new Billet("TK-3754", "Sophie Martin", "EK001", "Business", "12C", 850, "2026-04-12"),
+    new Billet("TK-1035", "Marc Levy", "BA009", "Economy", "34F", 420, "2026-04-13"),
 ];
 
 export const ListePassagers = [
-    new Passager ("P-001", "Dupont", "Jean", "Française", "j.dupontcom", "+33 6 12 34 56 78"),
-    new Passager ("P-002", "Alves", "Maria", "Portugaise", "m.alves@skpt", "+351 912 345 678"),
-    new Passager ("P-003", "Chen", "Li", "Chinoise", "l.chen@global.cn", "+86 138 0000 0000"),
+    new Passager ("PA-001", "Dupont", "Jean", "Française", "j.dupontcom", "+33 6 12 34 56 78"),
+    new Passager ("PA-002", "Alves", "Maria", "Portugaise", "m.alves@skpt", "+351 912 345 678"),
+    new Passager ("PA-003", "Chen", "Li", "Chinoise", "l.chen@global.cn", "+86 138 0000 0000"),
 ];
 
 export const ListePersonnel = [
-    new Personnel ("STAFF-01", "Leclerc", "Marc", "Pilote", "+33 6 00 11 22 33"),
-    new Personnel ("STAFF-02", "Dubois", "Julie", "Hôtesse", "+33 6 44 55 66 77"),
-    new Personnel ("STAFF-03", "Moreau", "Alain", "Technicien", "+33 6 88 99 00 11"),
+    new Personnel ("ST-01", "Leclerc", "Marc", "Pilote", "+33 6 00 11 22 33"),
+    new Personnel ("ST-02", "Dubois", "Julie", "Technicien", "+33 6 44 55 66 77"),
+    new Personnel ("ST-03", "Moreau", "Alain", "Co-pilote", "+33 6 88 99 00 11"),
+    new Personnel ("ST-04", "Gass", "Loan", "Steward", "+33 6 88 99 00 11"),
+    new Personnel ("ST-05", "Villette", "Morgane", "Hôtesse", "+33 6 88 99 00 11"),
 ];
 
 export const ListeVols = [
