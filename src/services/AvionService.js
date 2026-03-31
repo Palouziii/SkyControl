@@ -18,14 +18,15 @@ export class AvionService{
             data.compagnie,
         );
         this.avions.push(avion);
-    }
+        }
 
     getByImmatriculation(immatriculation) {
         return this.avions.find((avion) => avion.immatriculation == immatriculation);
     }
 
     remove(immatriculation) {
-        return this.avions.filter((avion) => avion.immatriculation != immatriculation);
+        this.avions = this.avions.filter((avion) => avion.immatriculation != immatriculation);
+        return this.avions
     }
 }
 
