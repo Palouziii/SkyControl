@@ -21,7 +21,7 @@ app.use("/vol", VolRouter);
 app.use("/billet", BilletRouter);
 app.use("/bagage", BagageRouter);
 
-sequelize.sync().then(() => {
+sequelize.sync({ alter: true }).then(() => {
    app.listen(process.env.PORT, () => {
       console.log("Port → http://localhost:8000")
    });

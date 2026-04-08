@@ -1,8 +1,14 @@
+import Avion from "../models/Avion.js";
 import Personnel from "../models/Personnel.js";
 
 export const getAllPersonnel = async (req, res) => {
     try {
-        const staff = await Personnel.findAll();
+        const staff = await Personnel.findAll({
+            include: [{
+                model: Avion,
+                as: 'avion',
+            }]
+        });
         res.status(200).json(staff);
     } catch (error) {
         res.status(500).json({ message: error.message });

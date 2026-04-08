@@ -4,9 +4,8 @@ import sequilize from "../SkyControleDB.js";
 const Avion = sequilize.define("Avion",
    {
       immatriculation: {
-         type: DataTypes.INTEGER,
+         type: DataTypes.STRING(50),
          primaryKey: true,
-         autoIncrement: true,
       },
       capacite: {
          type: DataTypes.INTEGER,
@@ -19,10 +18,10 @@ const Avion = sequilize.define("Avion",
       compagnie: {
          type: DataTypes.STRING(50),
          allowNull: false,
-      }      
+      }
    },
    {
-      timestamp:  true,
+      timestamp: true,
       createdAt: true,
       updatedAt: true,
    },
