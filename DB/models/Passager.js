@@ -32,7 +32,7 @@ const Passager = sequilize.define("Passager",
       }
    },
    {
-      timestamp: true,
+      timestamps: true,
       createdAt: true,
       updatedAt: true,
    },

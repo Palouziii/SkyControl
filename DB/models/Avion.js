@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequilize from "../SkyControleDB.js";
+import Personnel from "./Personnel.js";
 
 const Avion = sequilize.define("Avion",
    {
@@ -21,7 +22,7 @@ const Avion = sequilize.define("Avion",
       }
    },
    {
-      timestamp: true,
+      timestamps: true,
       createdAt: true,
       updatedAt: true,
    },

@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../SkyControleDB.js";
 import Avion from "./Avion.js";
 
+
 const Personnel = sequelize.define("Personnel", {
    id_personnel: {
       type: DataTypes.INTEGER,
