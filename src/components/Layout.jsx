@@ -25,19 +25,19 @@ export default function Layout({ children }) {
             <i className="bi bi-grid-1x2 me-3"></i> Home
           </NavLink>
           <NavLink to="/vol" className="nav-link">
-            <i className="bi bi-calendar-event me-3"></i> Vol
+            <i className="bi bi-calendar-event me-3"></i> Vols
           </NavLink>
           <NavLink to="/billet" className="nav-link">
-            <i className="bi bi-ticket-perforated me-3"></i> Billet
+            <i className="bi bi-ticket-perforated me-3"></i> Billets
           </NavLink>
           <NavLink to="/avion" className="nav-link">
-            <i className="bi bi-airplane me-3"></i> Avion
+            <i className="bi bi-airplane me-3"></i> Avions
           </NavLink>
           <NavLink to="/passager" className="nav-link">
-            <i className="bi bi-person me-3"></i> Passager
+            <i className="bi bi-person me-3"></i> Passagers
           </NavLink>
           <NavLink to="/personnel" className="nav-link">
-            <i className="bi bi-people me-3"></i> Personnel
+            <i className="bi bi-people me-3"></i> Personnels
           </NavLink>
         </nav>
 

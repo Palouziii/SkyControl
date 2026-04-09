@@ -16,9 +16,9 @@ export default function PassagerCard({ passagers, remove }) {
           </thead>
           <tbody>
             {passagers.map((passager) => (
-              <tr key={passager.id_passsager}>
+              <tr key={passager.id_passager}>
                 <td className="ps-4 fw-bold text-primary">
-                  {passager.id_passsager}
+                  {passager.id_passager}
                 </td>
                 <td>
                   <div className="fw-bold">{passager.nom.toUpperCase()}</div>
@@ -41,7 +41,7 @@ export default function PassagerCard({ passagers, remove }) {
                   </button>
                   <button
                     className="btn btn-outline-danger btn-sm fw-bold px-3"
-                    onClick={() => remove(passager.id_passsager)}
+                    onClick={() => remove(passager)}
                   >
                     SUPPRIMER
                   </button>

@@ -48,7 +48,7 @@ export default function PersonnelCard({ personnels, remove }) {
                   </button>
                   <button
                     className="btn btn-outline-danger btn-sm fw-bold px-3"
-                    onClick={() => remove(personnel.id_personnel)}
+                    onClick={() => remove(personnel)}
                   >
                     LICENCIEMENT
                   </button>

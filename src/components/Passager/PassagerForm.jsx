@@ -65,7 +65,7 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               type="text"
               name="telephone"
               className="form-control-prestige"
-              placeholder="+33 6..."
+              placeholder="Ex : 06 86 58 94 50"
               value={formData.telephone}
               onChange={handleChange}
               required

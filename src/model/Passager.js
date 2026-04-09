@@ -1,6 +1,6 @@
 export class Passager{
-    constructor(id_passsager, nom, prenom, nationalite, mail, telephone){
-        this.id_passsager = id_passsager
+    constructor(id_passager, nom, prenom, nationalite, mail, telephone){
+        this.id_passager = id_passager
         this.nom = nom
         this.prenom = prenom
         this.nationalite = nationalite

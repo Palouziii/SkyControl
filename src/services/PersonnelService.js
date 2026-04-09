@@ -13,25 +13,20 @@ export class PersonnelService {
    }
 
    async add(data) {
-      const id_personnel = "ST-" + Math.floor(Math.random() * 9000 + 1000 + Math.random());
+      const id_personnel = "ST-" + Math.floor(Math.random() * 9000 + 1000);
       const newPersonnel = new Personnel(
          id_personnel,
-         data.nom,
+         data.nom.toUpperCase(),
          data.prenom,
          data.fonction,
          data.telephone
       );
-
-      console.log(newPersonnel);
-      
-
-      const res = await API.post("/personnel", newPersonnel);
-      return res;
+      return await API.post("/personnel", newPersonnel);
    }
 
-   remove(id_personnel) {
-      this.personnels = this.personnels.filter(p => p.id_personnel !== id_personnel);
-      return this.personnels;
+   async remove(id) {
+      const res = await API.delete(`/personnel/${id}`);
+      return res
    }
 }
 

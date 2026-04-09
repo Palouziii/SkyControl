@@ -1,32 +1,34 @@
 import { ListePassagers } from "../data/FakeData";
 import { Passager } from "../model/Passager";
+import API from "./API";
 
 export class ServicePassager {
-  constructor() {
-    this.passagers = ListePassagers;
-  }
+   constructor() {
+      this.passagers = ListePassagers;
+   }
 
-  getAll() {
-    return this.passagers;
-  }
+   async getAll() {
+      const res = await API.get("/passager");
+      return res.data;
+   }
 
-  add(data) {
-    const id = "PA-" + Math.floor(Math.random() * 9000 + 1000);
-    const nouveauPassager = new Passager(
-      id,
-      data.nom,
-      data.prenom,
-      data.nationalite,
-      data.mail,
-      data.telephone
-    );
-    this.passagers.push(nouveauPassager);
-  }
+   async add(data) {
+      const id_passager = "PA-" + Math.floor(Math.random() * 9000 + 1000);
+      const nouveauPassager = new Passager(
+         id_passager,
+         data.nom.toUpperCase(),
+         data.prenom,
+         data.nationalite,
+         data.mail,
+         data.telephone
+      );
+      return await API.post("/passager", nouveauPassager);
+   }
 
-  remove(id_passsager) {
-    this.passagers = this.passagers.filter(p => p.id_passsager !== id_passsager);
-    return this.passagers;
-  }
+    async remove(id) {
+      const res = await API.delete(`/passager/${id}`);
+      return res
+   }
 }
 
 export default new ServicePassager();

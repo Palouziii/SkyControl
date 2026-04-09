@@ -11,14 +11,13 @@ export default function Personnel() {
      const load = async () => {
      const data = await PersonnelService.getAll();
      console.log(data)
-     setPersonnels(data);
+     setPersonnels(  data);
   }; 
   load()
   }, []);     
   
    const fetchPersonnels = async () => {
       const data = await PersonnelService.getAll();
-      console.log(data)
       setPersonnels(data);
    }
 
@@ -38,9 +37,9 @@ export default function Personnel() {
     resetForm();
   };
 
-  const handleRemove = (id) => {
-    const updated = PersonnelService.remove(id);
-    setPersonnels([...updated]);
+  const handleRemove = async (personnel) => {
+    await PersonnelService.remove(personnel.id_personnel)
+    await fetchPersonnels();
   };
 
   const resetForm = () => {
