@@ -49,7 +49,7 @@ export default function VolCard({ vols, remove }) {
                   <span className="compagnie-tag text-uppercase fw-extrabold text-white-50 small">
                     {vol.compagnie}
                   </span>
-                  <span className="reg-number-vol fw-mono text-white px-3 py-1 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-25 small shadow-sm">
+                  <span className="reg-number-vol fw-mono text-white px-3 py-1 rounded-pill bg-white bg-opacity-10 border border-white border-opacity-25 small shadow-sm range">
                     {vol.ref_vol}
                   </span>
                 </div>

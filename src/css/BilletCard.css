@@ -1,80 +1,104 @@
 /* Style Table Admin Original */
 .table thead th {
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: #64748b;
-    background-color: #f8fafc;
+   font-size: 0.8rem;
+   font-weight: 800;
+   text-transform: uppercase;
+   color: #64748b;
+   background-color: #f8fafc;
 }
 
 .table tbody td {
-    font-size: 0.9rem;
-    padding: 12px 10px;
+   font-size: 0.9rem;
+   padding: 12px 10px;
 }
 
-.btn-outline-dark, .btn-outline-danger {
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    letter-spacing: 0.5px;
+.btn-outline-dark,
+.btn-outline-danger {
+   font-size: 0.7rem;
+   padding: 4px 12px;
+   letter-spacing: 0.5px;
 }
 
 /* Badges de classe */
 .badge-classe-simple {
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    text-transform: uppercase;
+   font-size: 0.75rem;
+   font-weight: 700;
+   padding: 4px 10px;
+   border-radius: 4px;
+   text-transform: uppercase;
 }
-.first { background-color: #fef3c7; color: #92400e; }
-.business { background-color: #dbeafe; color: #1e40af; }
-.economy { background-color: #f1f5f9; color: #475569; }
+
+.first {
+   background-color: #fef3c7;
+   color: #92400e;
+}
+
+.business {
+   background-color: #dbeafe;
+   color: #1e40af;
+}
+
+.economy {
+   background-color: #f1f5f9;
+   color: #475569;
+}
 
 /* Formulaire Achat */
-.form-select, .form-control {
-    border-color: #e2e8f0 !important;
-    transition: 0.3s;
+.form-select,
+.form-control {
+   border-color: #e2e8f0 !important;
+   transition: 0.3s;
 }
 
-.form-select:focus, .form-control:focus {
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+.form-select:focus,
+.form-control:focus {
+   border-color: #2563eb !important;
+   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .animate__fadeInDown {
-    animation: fadeInDown 0.4s ease-out;
+   animation: fadeInDown 0.4s ease-out;
 }
 
 .badge-classe-simple.first-class {
-    background-color: #ffc107; 
-    color: #000;
+   background-color: #ffc107;
+   color: #000;
 }
+
 .badge-classe-simple.business-class {
-    background-color: #0d6efd; 
-    color: #fff;
+   background-color: #0d6efd;
+   color: #fff;
 }
+
 .badge-classe-simple.economy {
-    background-color: #6c757d; 
-    color: #fff;
+   background-color: #6c757d;
+   color: #fff;
 }
 
 .btn-premium {
-  background: #0f172a;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 100px;
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+   background: #0f172a;
+   color: white;
+   border: none;
+   padding: 12px 25px;
+   border-radius: 100px;
+   font-weight: 600;
+   transition: all 0.3s;
+   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
 }
 
 .btn-premium:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
+   background: #2563eb;
+   transform: translateY(-2px);
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+   from {
+      opacity: 0;
+      transform: translateY(-10px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }

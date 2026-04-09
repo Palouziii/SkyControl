@@ -1,227 +1,265 @@
 :root {
-  --primary-prestige: #2563eb;
-  --dark-prestige: #0f172a;
-  --bg-page: #f8fafc;
+   --primary-prestige: #2563eb;
+   --dark-prestige: #0f172a;
+   --bg-page: #f8fafc;
 }
 
-.vol-page-wrapper-premium { 
-  background-color: var(--bg-page); 
-  min-height: 100vh; 
+.vol-page-wrapper-premium {
+   background-color: var(--bg-page);
+   min-height: 100vh;
 }
 
-.fw-black { font-weight: 900; }
-.tracking-tighter { letter-spacing: -2px; }
-.tracking-widest { letter-spacing: 3px; }
+.fw-black {
+   font-weight: 900;
+}
+
+.tracking-tighter {
+   letter-spacing: -2px;
+}
+
+.tracking-widest {
+   letter-spacing: 3px;
+}
 
 /* --- STRUCTURE DE LA CARTE --- */
 
 .prestige-trip-card {
-    position: relative;
-    min-height: 320px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background-color: #000; /* Fond de sécurité */
-    overflow: hidden;
+   position: relative;
+   min-height: 320px;
+   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+   background-color: #000;
+   overflow: hidden;
 }
 
 .card-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=1000&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=1000&auto=format&fit=crop');
+   background-size: cover;
+   background-position: center;
+   z-index: 0;
+   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* --- OVERLAY ÉCLAIRCI --- */
 .card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Dégradé progressif : très léger en haut pour voir l'image, plus dense en bas pour le texte */
-    background: linear-gradient(180deg, 
-        rgba(15, 23, 42, 0.1) 0%, 
-        rgba(15, 23, 42, 0.3) 40%, 
-        rgba(15, 23, 42, 0.75) 100%);
-    z-index: 1;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(180deg,
+         rgba(15, 23, 42, 0.1) 0%,
+         rgba(15, 23, 42, 0.3) 40%,
+         rgba(15, 23, 42, 0.75) 100%);
+   z-index: 1;
 }
 
 .card-content-wrapper {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+   position: relative;
+   z-index: 2;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 /* --- VISIBILITÉ DES TEXTES ET HEURES --- */
 
 /* Heures (Décollage / Arrivée) */
 .h4.fw-black {
-    font-size: 1.9rem;
-    color: #ffffff;
-    /* Petit effet de lueur pour que l'heure "perce" le fond sombre */
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4); 
-    letter-spacing: 1px;
-    margin-bottom: 0;
+   font-size: 1.9rem;
+   color: #ffffff;
+   text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+   letter-spacing: 1px;
+   margin-bottom: 0;
 }
 
 /* Libellés (DÉCOLLAGE, ARRIVÉE, DATE) */
 .text-white-50 {
-    color: rgba(255, 255, 255, 0.85) !important; /* Plus blanc pour la visibilité */
-    font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+   color: rgba(255, 255, 255, 0.85) !important;
+   font-weight: 700;
+   font-size: 0.65rem;
+   letter-spacing: 1px;
+   text-transform: uppercase;
 }
 
 /* Codes Aéroport (CDG, JFK) */
 .display-5.fw-black {
-    color: #ffffff;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+   color: #ffffff;
+   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* --- EFFETS AU HOVER --- */
 
 .prestige-trip-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.3) !important;
+   transform: translateY(-10px);
+   box-shadow: 0 25px 50px rgba(15, 23, 42, 0.3) !important;
 }
 
 .prestige-trip-card:hover .card-bg-image {
-    transform: scale(1.15); /* Zoom sur l'image */
+   transform: scale(1.15);
 }
 
 /* --- BOUTON D'ACTION FLOTTANT (Ton style) --- */
 
 .card-action-top {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   z-index: 10;
+   background-color: rgba(255, 255, 255, 0.15);
+   backdrop-filter: blur(10px);
+   color: white;
+   padding: 8px 12px;
+   border-radius: 100px;
+   display: flex;
+   align-items: center;
+   opacity: 0;
+   transform: translateX(10px);
+   transition: all 0.4s ease;
+   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.card-action-top span { display: none; letter-spacing: 1px; font-size: 0.7rem; }
+.card-action-top span {
+   display: none;
+   letter-spacing: 1px;
+   font-size: 0.7rem;
+}
 
 .prestige-trip-card:hover .card-action-top {
-    opacity: 1;
-    transform: translateX(0);
+   opacity: 1;
+   transform: translateX(0);
 }
 
 .card-action-top:hover {
-    background-color: var(--primary-prestige);
-    padding: 8px 20px;
+   background-color: var(--primary-prestige);
+   padding: 8px 20px;
 }
 
-.card-action-top:hover span { display: inline; margin-left: 8px; }
+.card-action-top:hover span {
+   display: inline;
+   margin-left: 8px;
+}
+
+.range {
+   margin-right: 55%;
+}
 
 /* --- BOUTONS DU BAS --- */
 
 .circle-btn {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(5px);
+   width: 38px;
+   height: 38px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.2s ease;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   color: white;
 }
 
 .circle-btn:hover {
-    background: white;
-    color: var(--dark-prestige);
-    transform: scale(1.1);
+   background: white;
+   color: var(--dark-prestige);
+   transform: scale(1.1);
 }
 
 .circle-btn.delete:hover {
-    background: #ef4444;
-    color: white;
-    border-color: #ef4444;
+   background: #ef4444;
+   color: white;
+   border-color: #ef4444;
 }
 
 /* --- ANIMATION D'AVION (Mouvement Haut/Bas + Gauche/Droite) --- */
 @keyframes flyComplex {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(5px, -8px); } /* Monte et avance */
-    50% { transform: translate(10px, 0); }    /* Avance au centre */
-    75% { transform: translate(5px, 8px); }   /* Descend et recule */
-    100% { transform: translate(0, 0); }
+   0% {
+      transform: translate(0, 0);
+   }
+
+   25% {
+      transform: translate(3px, -2px);
+   }
+
+   50% {
+      transform: translate(7px, 0);
+   }
+
+   75% {
+      transform: translate(5px, 8px);
+   }
+
+   100% {
+      transform: translate(0, 0);
+   }
 }
 
 .animate-fly {
-    display: inline-block;
-    animation: flyComplex 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.6)); /* Lueur bleue sur l'avion */
+   display: inline-block;
+   animation: flyComplex 4s ease-in-out infinite;
+   filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.6));
 }
 
 /* --- FORMULAIRE --- */
 
 .label-form-prestige {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #94a3b8;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-    display: block;
+   font-size: 0.65rem;
+   font-weight: 800;
+   color: #94a3b8;
+   margin-bottom: 5px;
+   letter-spacing: 1px;
+   display: block;
 }
 
 .form-control-prestige {
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 12px;
-    background-color: #f8fafc;
-    transition: all 0.3s;
+   border: 1px solid #e2e8f0;
+   border-radius: 12px;
+   padding: 12px;
+   background-color: #f8fafc;
+   transition: all 0.3s;
 }
 
 .form-control-prestige:focus {
-    background-color: white;
-    border-color: var(--primary-prestige);
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-    outline: none;
+   background-color: white;
+   border-color: var(--primary-prestige);
+   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+   outline: none;
 }
 
 .animate-slide-down {
-    animation: slideDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+   animation: slideDown 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .btn-premium {
-  background: #0f172a;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 100px;
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+   background: #0f172a;
+   color: white;
+   border: none;
+   padding: 12px 25px;
+   border-radius: 100px;
+   font-weight: 600;
+   transition: all 0.3s;
+   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
 }
 
 .btn-premium:hover {
-  background: #2563eb;
-  transform: translateY(-2px);
+   background: #2563eb;
+   transform: translateY(-2px);
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+   from {
+      opacity: 0;
+      transform: translateY(-30px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
