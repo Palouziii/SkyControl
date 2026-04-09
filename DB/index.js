@@ -7,12 +7,15 @@ import PersonnelRouter from "./routes/Personnel.route.js";
 import VolRouter from "./routes/Vol.route.js";
 import BilletRouter from "./routes/Billet.route.js";
 import BagageRouter from "./routes/Bagage.route.js";
+import cors from "cors";
 
 dotenv.config()
 
 const app = express();
 
 app.use(express.json());
+app.use(cors()); // En mode Developpement
+//app.use(cors({ origin: ["https://SkyControle.fr", "localhost:5173"] })); // En mode Production
 
 app.use("/avion", AvionRouter);
 app.use("/passager", PassagerRouter);
@@ -23,6 +26,6 @@ app.use("/bagage", BagageRouter);
 
 sequelize.sync({ alter: true }).then(() => {
    app.listen(process.env.PORT, () => {
-      console.log("Port → http://localhost:8000")
+      console.log("Port → http://localhost:4000")
    });
 });

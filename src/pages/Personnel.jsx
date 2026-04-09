@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PersonnelCard from "../components/Personnel/PersonnelCard";
 import PersonnelForm from "../components/Personnel/PersonnelForm";
 import PersonnelService from "../services/PersonnelService";
 
 export default function Personnel() {
-  const [personnels, setPersonnels] = useState(PersonnelService.getAll());
-  const [showAdd, setShowAdd] = useState(false);
+  const [personnels, setPersonnels] = useState([]);
+  const [showAdd, setShowAdd] = useState(false); 
+
+  useEffect(() => {
+     const load = async () => {
+     const data = await PersonnelService.getAll();
+     console.log(data)
+     setPersonnels(data);
+  }; 
+  load()
+  }, []);     
+  
+   const fetchPersonnels = async () => {
+      const data = await PersonnelService.getAll();
+      console.log(data)
+      setPersonnels(data);
+   }
+
 
   const [formData, setFormData] = useState({
     nom: "",
@@ -14,11 +30,11 @@ export default function Personnel() {
     telephone: "",
   });
 
-  const add = (e) => {
+  const add = async (e) => {
     e.preventDefault();
-    PersonnelService.add(formData);
-    setPersonnels([...PersonnelService.getAll()]);
+    await PersonnelService.add(formData);
     setShowAdd(false);
+    await fetchPersonnels()
     resetForm();
   };
 
