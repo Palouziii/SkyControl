@@ -1,4 +1,5 @@
-export default function PassagerForm({ formData, setFormData, add, onCancel }) {
+export default function PassagerForm({ formData, setFormData, add, onCancel, onEdit }) {
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -6,9 +7,12 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
   return (
     <div className="card shadow-sm mb-5 border-0 animate__animated animate__fadeInDown bg-white rounded-4 overflow-hidden">
       <div className="card-header bg-dark text-white fw-bold py-3 px-4 d-flex justify-content-between align-items-center">
-        <span>ENREGISTREMENT NOUVEAU PASSAGER</span>
+        <span>
+          {onEdit ? "MODIFICATION DU PASSAGER" : "ENREGISTREMENT NOUVEAU PASSAGER"}
+        </span>
         <button type="button" className="btn-close btn-close-white" onClick={onCancel}></button>
       </div>
+
       <div className="card-body p-4">
         <form className="row g-4" onSubmit={add}>
           <div className="col-md-3">
@@ -23,6 +27,7 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               required
             />
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">PRÉNOM</label>
             <input
@@ -35,6 +40,7 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               required
             />
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">NATIONALITÉ</label>
             <input
@@ -47,6 +53,7 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               required
             />
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">EMAIL</label>
             <input
@@ -59,6 +66,7 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               required
             />
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">TÉLÉPHONE</label>
             <input
@@ -71,9 +79,13 @@ export default function PassagerForm({ formData, setFormData, add, onCancel }) {
               required
             />
           </div>
+
           <div className="col-md-9 d-flex align-items-end justify-content-end">
-            <button type="submit" className="btn btn-primary px-5 py-2 fw-bold rounded-3 shadow-sm">
-              CRÉER LA FICHE PASSAGER
+            <button 
+              type="submit" 
+              className={`btn ${onEdit ? 'btn-warning' : 'btn-primary'} px-5 py-2 fw-bold rounded-3 shadow-sm`}
+            >
+              {onEdit ? "ENREGISTRER LES MODIFICATIONS" : "CRÉER LA FICHE PASSAGER"}
             </button>
           </div>
         </form>

@@ -29,6 +29,18 @@ export class ServicePassager {
       const res = await API.delete(`/passager/${id}`);
       return res
    }
+
+   async update(id, data) {
+      const passagerModifie = new Passager(
+         id,
+         data.nom.toUpperCase(),
+         data.prenom,
+         data.nationalite,
+         data.mail,
+         data.telephone
+      );
+      return await API.put(`/passager/${id}`, passagerModifie);
+   }   
 }
 
 export default new ServicePassager();

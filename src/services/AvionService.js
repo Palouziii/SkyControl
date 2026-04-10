@@ -1,33 +1,36 @@
 import { ListeAvions } from "../data/FakeData";
 import { Avion } from "../model/Avion";
+import API from "./API";
 
-export class AvionService{
-    constructor(){
-        this.avions = ListeAvions;
-    }
+export class AvionService {
+   constructor() {
+      this.avions = ListeAvions;
+   }
 
-        getAll(){
-            return this.avions
-        }
+   async getAll() {
+      const res = await API.get("/avion");
+      return res.data;
+   }
 
-        add(data) {
-            const avion = new Avion(
-            data.immatriculation,
-            data.capacite,
-            data.modele,
-            data.compagnie,
-        );
-        this.avions.push(avion);
-        }
+   async add(data) {
+      const nouveauAvion = new Avion(
+         data.immatriculation,
+         data.capacite,
+         data.modele,
+         data.compagnie
+      );
+      return await API.post("/avion", nouveauAvion);
+   }
 
-    getByImmatriculation(immatriculation) {
-        return this.avions.find((avion) => avion.immatriculation == immatriculation);
-    }
+   async getByImmatriculation(immatriculation) {
+      const res = await API.get(`/avion/${immatriculation}`);
+      return res.data;
+   }
 
-    remove(immatriculation) {
-        this.avions = this.avions.filter((avion) => avion.immatriculation != immatriculation);
-        return this.avions
-    }
+   async remove(immatriculation) {
+      const res = await API.delete(`/avion/${immatriculation}`);
+      return res;
+   }
 }
 
 export default new AvionService()
