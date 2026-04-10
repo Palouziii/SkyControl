@@ -1,45 +1,81 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BilletCard from "../components/Billet/BilletCard";
 import BilletForm from "../components/Billet/BilletForm";
 import BilletService from "../services/BilletService";
 
 export default function Billet() {
-  const [billets, setBillets] = useState(BilletService.getAll());
+  const [billets, setBillets] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
-
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentImmat, setCurrentRef_billet] = useState(null);
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
-    nationalite: "",
-    ref_vol: "",
-    classe: "",
-    bagage: "",
-    siege: "",
+        ref_billet: "",
+        passager : "",
+        vol : "",
+        classe : "",
+        siege : "",
+        prix : "",
+        date: ""
   });
 
-  const add = (e) => {
+  useEffect(() => {
+    const load = async () => {
+      const data = await BilletService.getAll();
+      setBillets(data);
+    };
+    load();
+  }, []);  
+
+  const fetchBillets = async () => {
+    const data = await BilletService.getAll();
+    setBillets(data);
+  };
+
+  const add = async (e) => {
     e.preventDefault();
-    BilletService.add(formData);
-    setBillets([...BilletService.getAll()]);
+    if (isEditing) {
+      await BilletService.update(currentImmat, formData);
+    } else {
+      await BilletService.add(formData);
+    }
     setShowAdd(false);
+    await fetchBillets();
     resetForm();
   };
 
-  const handleRemove = (ref) => {
-    const updated = BilletService.remove(ref);
-    setBillets([...updated]);
+  const handleRemove = async (ref_billet) => {
+    await BilletService.remove(ref_billet);
+    await fetchBillets(); 
+  };
+
+  const handleEdit = (billet) => {
+    setFormData({
+      ref_billet: billet.ref_billet,
+      passager: billet.passager,
+      vol: billet.vol,
+      classe: billet.classe,
+      siege: billet.siege,
+      prix: billet.prix,
+      date: billet.date,
+    });
+    setCurrentRef_billet(billet.ref_billet);
+    setIsEditing(true);
+    setShowAdd(true);
   };
 
   const resetForm = () => {
     setFormData({
-      nom: "",
-      prenom: "",
-      nationalite: "",
+      ref_billet: "",
+      passager: "",
+      vol: "",
       ref_vol: "",
       classe: "",
-      bagage: "",
       siege: "",
+      prix: "",
+      date: "",
     });
+    setIsEditing(false);
+    setCurrentRef_billet(null);
   };
 
   return (
@@ -63,12 +99,14 @@ export default function Billet() {
           setFormData={setFormData}
           add={add}
           onCancel={() => setShowAdd(false)}
+          onEdit={isEditing}
+
         />
       )}
 
       <div className="row">
         <div className="col-12">
-          <BilletCard billets={billets} remove={handleRemove} />
+          <BilletCard billets={billets} remove={handleRemove} edit={handleEdit}/>
         </div>
       </div>
     </div>

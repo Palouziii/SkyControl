@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import AvionCard from "../components/Avion/AvionCard";
 import AvionForm from "../components/Avion/AvionForm";
-import avionService from "../services/AvionService";
+import AvionService from "../services/AvionService";
 
 export default function Avion() {
   const [avions, setAvions] = useState([]);
   const [showAdd, setShowAdd] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentImmat, setCurrentImmatriculation] = useState(null);
   const [formData, setFormData] = useState({
     immatriculation: "",
     modele: "",
@@ -15,41 +17,50 @@ export default function Avion() {
 
   useEffect(() => {
     const load = async () => {
-      const data = await avionService.getAll();
+      const data = await AvionService.getAll();
       setAvions(data);
     };
     load();
   }, []);
 
   const fetchAvions = async () => {
-    const data = await avionService.getAll();
+    const data = await AvionService.getAll();
     setAvions(data);
   };
 
   const add = async (e) => {
     e.preventDefault();
-    if (formData.immatriculation.length >= 6 && formData.capacite > 0) {
-      await avionService.add(formData);
-      setShowAdd(false);
-      await fetchAvions(); 
-      resetForm();
+    if (isEditing) {
+      await AvionService.update(currentImmat, formData);
     } else {
-      console.log("Formulaire invalide");
+      await AvionService.add(formData);
     }
+    setShowAdd(false);
+    await fetchAvions();
+    resetForm();
   };
 
   const handleRemove = async (immatriculation) => {
-    await avionService.remove(immatriculation);
+    await AvionService.remove(immatriculation);
     await fetchAvions(); 
   };
 
-  const resetForm = () => {
+  const handleEdit = (avion) => {
     setFormData({
-      immatriculation: "",
-      modele: "",
-      compagnie: "",
-      capacite: "",
+      immatriculation: avion.immatriculation,
+      modele: avion.modele,
+      compagnie: avion.compagnie,
+      capacite: avion.capacite,
     });
+    setCurrentImmatriculation(avion.immatriculation);
+    setIsEditing(true);
+    setShowAdd(true);
+  };
+
+  const resetForm = () => {
+    setFormData({ immatriculation: "", modele: "", compagnie: "", capacite: "" });
+    setIsEditing(false);
+    setCurrentImmatriculation(null);
   };
 
   return (
@@ -68,7 +79,7 @@ export default function Avion() {
             </p>
           </div>
           <p className="text-secondary">
-            Actuellement {avions.length} appareils en opération active
+            Actuellement {avions.length} dans la flotte
           </p>
         </div>
         <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
@@ -82,12 +93,13 @@ export default function Avion() {
           setFormData={setFormData}
           add={add}
           onCancel={() => setShowAdd(false)}
+          onEdit={isEditing}
         />
       )}
 
       <div className="row">
         <div className="col-12">
-          <AvionCard avions={avions} remove={handleRemove} />
+          <AvionCard avions={avions} remove={handleRemove} edit={handleEdit}/>
         </div>
       </div>
     </div>

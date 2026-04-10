@@ -1,36 +1,43 @@
-import { ListeVols } from "../data/FakeData";
 import { Vol } from "../model/Vol";
+import API from "./API";
 
-export class VolService{
-    constructor(){
-        this.vols = ListeVols;
-    }
+export class VolService {
+   async getAll() {
+      const res = await API.get("/vol");
+      return res.data;
+   }
 
-        getAll(){
-            return this.vols
-        }
+   async add(data) {
+      const newVol = new Vol(
+         data.ref_vol,
+         data.compagnie,
+         data.depart,
+         data.arrivé,
+         data.date_depart,
+         data.date_arrivé,
+      );
+      return await API.post("/vol", newVol);
+   }
 
-        add(data) {
-            const vol = new Vol(
-                data.ref_vol,
-                data.compagnie,
-                data.depart,
-                data.arrivé,
-                data.date_depart,
-                data.date_arrivé,
-        );
-        this.vols.push(vol);
-        }
+   async getByRefVol(ref_vol) {
+      return API.get(`/vol/${ref_vol}`);
+   }
 
-        getByRefVol(ref_vol){
-            return this.vols.find(vol => vol.ref_vol == ref_vol)
-        }
+   async remove(ref_vol) {
+      return await API.delete(`/vol/${ref_vol}`);
+   }
 
-        remove(ref_vol){
-            this.vols = this.vols.filter(vol => vol.ref_vol != ref_vol)
-            return this.vols
-        }
-    
+   async update(ref_vol, data) {
+      const volModifie = new Vol(
+         ref_vol,
+         data.compagnie,
+         data.depart,
+         data.arrivé,
+         data.date_depart,
+         data.date_arrivé
+      );
+      return await API.put(`/vol/${ref_vol}`, volModifie);
+   }
 }
 
-export default new VolService()
+export default new VolService();

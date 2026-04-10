@@ -35,8 +35,9 @@ export const getAvionById = async (req, res) => {
 
 export const createAvion = async (req, res) => {
    try {
-      const { capacite, modele, compagnie } = req.body;
+      const { immatriculation, capacite, modele, compagnie } = req.body;
       const newAvion = await Avion.create({
+         immatriculation,
          capacite,
          modele,
          compagnie
@@ -52,7 +53,7 @@ export const createAvion = async (req, res) => {
 
 export const updateAvion = async (req, res) => {
    try {
-      const { capacite, modele, compagnie } = req.body;
+      const { immatriculation, capacite, modele, compagnie } = req.body;
 
       const avion = await Avion.findByPk(req.params.id);
 
@@ -60,7 +61,7 @@ export const updateAvion = async (req, res) => {
          return res.status(404).json({ message: "AirCraft not found" });
       }
 
-      await avion.update({ capacite, modele, compagnie });
+      await avion.update({ immatriculation, capacite, modele, compagnie });
       res.status(200).json(avion);
    } catch (error) {
       res.status(500).json({ message: error.message });

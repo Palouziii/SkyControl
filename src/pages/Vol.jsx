@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; 
 import VolCard from "../components/Vol/VolCard";
-import VolService from "../services/VolService";
 import VolForm from "../components/Vol/VolForm";
+import VolService from "../services/VolService";
 
 export default function Vol() {
-  const [vols, setVols] = useState(VolService.getAll());
+  const [vols, setVols] = useState([]);
+  const [showAdd, setShowAdd] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentRef, setCurrentRef_vol] = useState(null);
   const [formData, setFormData] = useState({
     ref_vol: "",
     compagnie: "",
@@ -14,46 +17,80 @@ export default function Vol() {
     date_arrivé: "",
   });
 
-  const add = (e) => {
+  useEffect(() => {
+     const load = async () => {
+     const data = await VolService.getAll();
+     setVols(data);
+  }; 
+  load()
+  }, []); 
+
+  const fetchVols = async () => {
+    const data = await VolService.getAll();
+    setVols(data);
+  };
+
+  const add = async (e) => {
     e.preventDefault();
-    VolService.add(formData);
-    setVols([...VolService.getAll()]);
-    resetForm();
+    if (isEditing) {
+      await VolService.update(currentRef, formData);
+    } else {
+      await VolService.add(formData);
+    }
     setShowAdd(false);
+    await fetchVols(); 
+    resetForm();
   };
 
   const resetForm = () => {
-    setFormData({
-      ref_vol: "",
-      compagnie: "",
-      depart: "",
-      arrivé: "",
-      date_depart: "",
-      date_arrivé: "",
+    setFormData({ 
+      ref_vol: "", 
+      compagnie: "", 
+      depart: "", 
+      arrivé: "", 
+      date_depart: "", 
+      date_arrivé: "" 
     });
+    setIsEditing(false);
+    setCurrentRef_vol(null);
   };
 
-  const handleRemove = (ref_vol) => {
-    const updatedList = VolService.remove(ref_vol);
-    setVols([...updatedList]);
+  const handleRemove = async (vol) => {
+        await VolService.remove(vol.ref_vol);
+        await fetchVols();
   };
 
-  const [showAdd, setShowAdd] = useState(false);
+  const handleEdit = (vol) => {
+    setFormData({
+      ref_vol: vol.ref_vol,
+      compagnie: vol.compagnie,
+      depart: vol.depart,
+      arrive: vol.arrive,
+      date_depart: vol.date_depart,
+      date_arrive: vol.date_arrive,
+    });
+    setCurrentRef_vol(vol.ref_vol);
+    setIsEditing(true);
+    setShowAdd(true);
+  };
 
   return (
-    <>
+    <div className="container-fluid"> 
       <header className="page-header-prestige-vol d-flex justify-content-between align-items-center mb-5">
         <div className="title-area-vol">
           <h1 className="display-6 fw-black text-dark text-uppercase tracking-tighter mb-0">
             Les Liaisons d'Exception
           </h1>
           <p className="text-secondary opacity-75">
-            Explorez et gérez votre collection de vols prestigieux.
+            Explorez et gérez votre collection de vols prestigieux ({vols.length}).
           </p>
         </div>
         <div className="header-actions">
-          <button className="btn-premium" onClick={() => setShowAdd(!showAdd)}>
-            {showAdd ? "ANNULER" : "+ CREE UN VOL"}
+          <button className="btn-premium" onClick={() => {
+            if(showAdd) resetForm();
+            setShowAdd(!showAdd);
+          }}>
+            {showAdd ? "ANNULER" : "+ CRÉER UN VOL"}
           </button>
         </div>
       </header>
@@ -63,11 +100,12 @@ export default function Vol() {
           formData={formData}
           setFormData={setFormData}
           add={add}
-          onCancel={() => setShowAdd(false)}
+          onCancel={() => { setShowAdd(false); resetForm(); }}
+          onEdit={isEditing}
         />
       )}
 
-      <VolCard vols={vols} remove={handleRemove} />
-    </>
+      <VolCard vols={vols} remove={handleRemove} edit={handleEdit} />
+    </div>
   );
 }

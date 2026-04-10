@@ -1,6 +1,6 @@
 import "../../css/PersonnelCard.css";
 
-export default function PersonnelCard({ personnels, remove }) {
+export default function PersonnelCard({ personnels, remove, edit }) {
   return (
     <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
       <div className="table-responsive">
@@ -43,7 +43,10 @@ export default function PersonnelCard({ personnels, remove }) {
                 </td>
                 <td className="fw-mono small">{personnel.telephone}</td>
                 <td className="text-center">
-                  <button className="btn btn-outline-dark btn-sm fw-bold me-2 px-3">
+                  <button 
+                  className="btn btn-outline-dark btn-sm fw-bold me-2 px-3"
+                  onClick={() => edit(personnel)}
+                  >
                     ÉDITER
                   </button>
                   <button

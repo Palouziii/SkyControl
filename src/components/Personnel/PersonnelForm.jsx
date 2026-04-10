@@ -1,4 +1,4 @@
-export default function PersonnelForm({ formData, setFormData, add, onCancel }) {
+export default function PersonnelForm({ formData, setFormData, add, onCancel, onEdit }) {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -63,8 +63,8 @@ export default function PersonnelForm({ formData, setFormData, add, onCancel }) 
             />
           </div>
           <div className="col-md-2 d-flex align-items-end">
-            <button type="submit" className="btn btn-primary w-100 fw-bold py-2">
-              ENREGISTRER
+            <button type="submit" className={`btn ${onEdit ? 'btn-warning' : 'btn-primary'} w-100 fw-bold py-2`}>
+              {onEdit ? "MODIFIER" : "ENREGISTRER"}
             </button>
           </div>
         </form>

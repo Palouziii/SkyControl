@@ -1,6 +1,6 @@
 import "../../css/AvionCard.css";
 
-export default function AvionCard({ avions, remove }) {
+export default function AvionCard({ avions, remove, edit}) {
   return (
     <div className="fleet-grid">
       {avions.map((avion) => (
@@ -36,19 +36,23 @@ export default function AvionCard({ avions, remove }) {
             <div className="card-bottom text-white">
               <div className="capacity-info">
                 <div className="progress-label d-flex justify-content-between small mb-2 fw-bold text-white-50">
-                  <span>CAPACITÉ MAX</span>
+                  <span>CAPACITÉ CLIENTS</span>
                   <span>{avion.capacite} SIÈGES</span>
                 </div>
                 <div className="progress-bar-custom-avion mb-4">
                   <div
                     className="progress-fill-avion"
-                    style={{ width: "100%" }}
+                    style={{ width: (avion.capacite / 700) * 100 + "%" }}
                   ></div>
                 </div>
               </div>
 
               <div className="card-actions-avion d-flex justify-content-end gap-2 border-top border-white border-opacity-10 pt-3">
-                <button className="circle-btn-avion" title="Éditer">
+                <button 
+                  className="circle-btn-avion" 
+                  title="Éditer"
+                  onClick={() => edit(avion)} 
+                  >
                   <i className="bi bi-sliders"></i>
                 </button>
                 <button

@@ -1,4 +1,4 @@
-export default function VolForm({ formData, setFormData, add }) {
+export default function VolForm({ formData, setFormData, add, onCancel, onEdit }) {
   
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -7,8 +7,12 @@ export default function VolForm({ formData, setFormData, add }) {
   return (
     <div className="card shadow-sm mb-5 border-0 animate-slide-down bg-white rounded-4 overflow-hidden">
       <div className="card-header bg-dark text-white fw-bold py-3 px-4">
-        NOUVELLE PLANIFICATION
+         <span>
+            {onEdit ? "MODIFICATION DU PASSAGER" : "ENREGISTREMENT NOUVEAU PASSAGER"}
+         </span>
+      <button type="button" className="btn-close btn-close-white" onClick={onCancel}></button>
       </div>
+      
       <div className="card-body p-4">
         <form className="row g-4" onSubmit={add}>
           <div className="col-md-3">
@@ -86,7 +90,7 @@ export default function VolForm({ formData, setFormData, add }) {
               type="submit"
               className="btn btn-primary w-100 py-2 fw-bold rounded-3"
             >
-              PUBLIER LE VOL
+            <span>{onEdit ? "MODIFIER LA PLANIFICATION" : "NOUVELLE PLANIFICATION"}</span>
             </button>
           </div>
         </form>

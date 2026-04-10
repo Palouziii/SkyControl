@@ -1,12 +1,7 @@
-import { ListePersonnel } from "../data/FakeData";
 import { Personnel } from "../model/Personnel";
 import API from "./API";
 
 export class PersonnelService {
-   constructor() {
-      this.personnels = ListePersonnel;
-   }
-
    async getAll() {
       const res = await API.get("/personnel");
       return res.data;
@@ -28,6 +23,18 @@ export class PersonnelService {
       const res = await API.delete(`/personnel/${id}`);
       return res
    }
+
+   async update(id, data) {
+      const personnelModifie = new Personnel(
+         id,
+         data.nom.toUpperCase(),
+         data.prenom,
+         data.fonction,
+         data.telephone
+      );
+      return await API.put(`/personnel/${id}`, personnelModifie);
+   }
 }
+
 
 export default new PersonnelService();

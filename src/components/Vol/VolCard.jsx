@@ -1,16 +1,16 @@
 import "../../css/VolCard.css";
 
-export default function VolCard({ vols, remove }) {
+export default function VolCard({ vols, edit, remove }) {
   const formatCity = (str) => (str ? str.split(" ")[0] : "");
 
-  const formatCode = (str) => {
+  const formatCodeCity = (str) => {
     if (!str) return "";
     const match = str.match(/\((.*?)\)/);
     return match ? match[1] : str;
   };
 
   const formatFullDate = (str) => {
-    if (!str) return "Date NC";
+    if (!str) return "Date non conforme";
     const d = new Date(str);
     const jour = String(d.getDate()).padStart(2, "0");
     const mois = String(d.getMonth() + 1).padStart(2, "0");
@@ -58,7 +58,7 @@ export default function VolCard({ vols, remove }) {
                   <div className="route-area-prestige d-flex justify-content-center align-items-center gap-2">
                     <div className="location">
                       <span className="display-5 fw-black d-block">
-                        {formatCode(vol.depart)}
+                        {formatCodeCity(vol.depart)}
                       </span>
                       <span className="text-uppercase small fw-bold text-white-50">
                         {formatCity(vol.depart)}
@@ -69,7 +69,7 @@ export default function VolCard({ vols, remove }) {
 
                     <div className="location">
                       <span className="display-5 fw-black d-block">
-                        {formatCode(vol.arrivé)}
+                        {formatCodeCity(vol.arrivé)}
                       </span>
                       <span className="text-uppercase small fw-bold text-white-50">
                         {formatCity(vol.arrivé)}
@@ -118,12 +118,12 @@ export default function VolCard({ vols, remove }) {
                   </div>
 
                   <div className="d-flex justify-content-end gap-2 border-top border-white border-opacity-10 pt-2">
-                    <button className="action-btn circle-btn border-white border-opacity-25 text-white">
+                    <button className="action-btn circle-btn border-white border-opacity-25 text-white" onClick={() => edit(vol)}>
                       <i className="bi bi-sliders"></i>
                     </button>
                     <button
                       className="action-btn circle-btn delete border-danger border-opacity-50 text-danger"
-                      onClick={() => remove(vol.ref_vol)}
+                      onClick={() => remove(vol)}
                     >
                       <i className="bi bi-trash3"></i>
                     </button>

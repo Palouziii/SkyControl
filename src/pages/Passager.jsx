@@ -15,7 +15,6 @@ export default function Passager() {
   useEffect(() => {
      const load = async () => {
      const data = await PassagerService.getAll();
-     console.log(data)
      setPassagers(data);
   }; 
   load()

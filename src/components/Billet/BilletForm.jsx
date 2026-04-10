@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import VolService from "../../services/VolService";
 
 export default function BilletForm({
@@ -5,9 +6,21 @@ export default function BilletForm({
   setFormData,
   add,
   onCancel,
+  onEdit,
   showAchat,
 }) {
-  const vols = VolService.getAll();
+  const [vols, setVols] = useState([]);
+  useEffect(() => {
+    const loadVols = async () => {
+      try {
+        const data = await VolService.getAll();
+        setVols(data || []);
+      } catch (error) {
+        console.error("Erreur lors du chargement des vols", error);
+      }
+    };
+    if (showAchat) loadVols();
+  }, [showAchat]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,6 +76,8 @@ export default function BilletForm({
               required
             />
           </div>
+
+          {/* SÉLECTION VOL */}
           <div className="col-md-3">
             <label className="label-form-prestige">SÉLECTION DU VOL</label>
             <select
@@ -75,27 +90,28 @@ export default function BilletForm({
               <option value="">Choisir un vol...</option>
               {vols.map((vol) => (
                 <option key={vol.ref_vol} value={vol.ref_vol}>
-                  {vol.ref_vol} - {vol.depart.split(" ")[0]} /{" "}
-                  {vol.arrivé.split(" ")[0]}
+                  {vol.ref_vol} - {vol.depart?.split(" ")[0]} / {vol.arrivé?.split(" ")[0]}
                 </option>
               ))}
             </select>
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">CLASSE</label>
             <select
-            className="form-control-prestige"
-            name="classe"
-            value={formData.classe}
-            onChange={handleChange}
-            required 
+              className="form-control-prestige"
+              name="classe"
+              value={formData.classe}
+              onChange={handleChange}
+              required
             >
-            <option value="">Choisir...</option> 
-            <option value="First Class">First Class</option>
-            <option value="Business Class">Business Class</option>
-            <option value="Economy">Economy</option>
+              <option value="">Choisir...</option>
+              <option value="First Class">First Class</option>
+              <option value="Business Class">Business Class</option>
+              <option value="Economy">Economy</option>
             </select>
           </div>
+
           <div className="col-md-3">
             <label className="label-form-prestige">FRANCHISE BAGAGE</label>
             <select
@@ -103,6 +119,7 @@ export default function BilletForm({
               name="bagage"
               value={formData.bagage}
               onChange={handleChange}
+              required
             >
               <option value="">Sélectionner le poids...</option>
               <option value="12">Cabine uniquement (≤ 12 Kg)</option>
@@ -111,6 +128,7 @@ export default function BilletForm({
               <option value="32">Soute Premium (≤ 32 Kg)</option>
             </select>
           </div>
+
           <div className="col-md-2">
             <label className="label-form-prestige">SIÈGE</label>
             <input
@@ -122,12 +140,16 @@ export default function BilletForm({
               onChange={handleChange}
             />
           </div>
-          <div className="col-md-4 d-flex align-items-end">
+
+          <div className="col-md-4 d-flex align-items-end justify-content-end">
             <button
               type="submit"
               className="btn btn-primary px-5 py-2 fw-bold rounded-3 shadow-sm"
             >
-              VALIDER L'ACHAT
+              <i className="bi bi-cart-check me-2"></i>
+              <span>
+                  {onEdit ? "Modifier le billet" : "Acheter"}
+               </span>
             </button>
           </div>
         </form>

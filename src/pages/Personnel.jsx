@@ -4,14 +4,17 @@ import PersonnelForm from "../components/Personnel/PersonnelForm";
 import PersonnelService from "../services/PersonnelService";
 
 export default function Personnel() {
-  const [personnels, setPersonnels] = useState([]);
-  const [showAdd, setShowAdd] = useState(false); 
+   const [personnels, setPersonnels] = useState([]);
+   const [showAdd, setShowAdd] = useState(false); 
+   const [isEditing, setIsEditing] = useState(false);
+   const [currentId, setCurrentId] = useState(null);
 
   useEffect(() => {
      const load = async () => {
      const data = await PersonnelService.getAll();
-     console.log(data)
-     setPersonnels(  data);
+     console.log(data);
+     
+     setPersonnels(data);
   }; 
   load()
   }, []);     
@@ -29,22 +32,40 @@ export default function Personnel() {
     telephone: "",
   });
 
-  const add = async (e) => {
-    e.preventDefault();
-    await PersonnelService.add(formData);
-    setShowAdd(false);
-    await fetchPersonnels()
-    resetForm();
-  };
+   const add = async (e) => {
+   e.preventDefault();
+   if (isEditing) {
+      await PersonnelService.update(currentId, formData);
+   } else {
+      await PersonnelService.add(formData);
+   }
+   setShowAdd(false);
+   await fetchPersonnels();
+   resetForm();
+   };
 
   const handleRemove = async (personnel) => {
     await PersonnelService.remove(personnel.id_personnel)
     await fetchPersonnels();
   };
 
-  const resetForm = () => {
-    setFormData({ nom: "", prenom: "", fonction: "", telephone: "" });
-  };
+  const handleEdit = (personnel) => {
+  setFormData({
+      nom: personnel.nom,
+      prenom: personnel.prenom,
+      fonction: personnel.fonction,
+      telephone: personnel.telephone,
+   });
+   setCurrentId(personnel.id_personnel);
+   setIsEditing(true);
+   setShowAdd(true);
+   };
+
+   const resetForm = () => {
+      setFormData({ nom: "", prenom: "", fonction: "", telephone: "" });
+      setIsEditing(false);
+      setCurrentId(null);
+   };
 
   return (
     <div className="container-fluid p-4">
@@ -73,12 +94,13 @@ export default function Personnel() {
           setFormData={setFormData}
           add={add}
           onCancel={() => setShowAdd(false)}
+          onEdit={isEditing}
         />
       )}
 
       <div className="row">
         <div className="col-12">
-          <PersonnelCard personnels={personnels} remove={handleRemove} />
+          <PersonnelCard personnels={personnels} remove={handleRemove} edit={handleEdit} />
         </div>
       </div>
     </div>

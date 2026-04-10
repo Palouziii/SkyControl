@@ -1,6 +1,6 @@
 import "../../css/BilletCard.css";
 
-export default function BilletCard({ billets, remove }) {
+export default function BilletCard({ billets, remove, edit }) {
   return (
     <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
       <div className="table-responsive">
@@ -32,10 +32,14 @@ export default function BilletCard({ billets, remove }) {
                 <td className="fw-bold">{billet.siege}</td>
                 <td className="text-success fw-bold">{billet.prix} €</td>
                 <td className="text-center">
-                  <button className="btn btn-outline-dark btn-sm fw-bold me-2">MODIFIER</button>
+                  <button 
+                  className="btn btn-outline-dark btn-sm fw-bold me-2" 
+                  onClick={() => edit(billet)}>MODIFIER
+                  </button>
+                  
                   <button 
                     className="btn btn-outline-danger btn-sm fw-bold"
-                    onClick={() => remove(billet.ref_billet)}
+                    onClick={() => remove(billet)}
                   >
                     SUPPRIMER
                   </button>
