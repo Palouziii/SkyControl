@@ -8,7 +8,9 @@ export default function BilletCard({ billets, remove, edit }) {
           <thead className="table-light">
             <tr>
               <th className="ps-4 py-3">ID Billet</th>
-              <th>Passager</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Nationalite</th>
               <th>Vol</th>
               <th>Classe</th>
               <th>Siège</th>
@@ -20,7 +22,9 @@ export default function BilletCard({ billets, remove, edit }) {
             {billets.map((billet) => (
               <tr key={billet.ref_billet}>
                 <td className="ps-4 fw-bold text-primary">{billet.ref_billet}</td>
-                <td className="fw-medium">{billet.passager}</td>
+                <td className="fw-medium">{billet.nom}</td>
+                <td className="fw-medium">{billet.prenom}</td>
+                <td className="fw-medium">{billet.nationalite}</td>
                 <td>
                   <span className="badge bg-dark px-2">{billet.vol}</span>
                 </td>
@@ -39,7 +43,7 @@ export default function BilletCard({ billets, remove, edit }) {
                   
                   <button 
                     className="btn btn-outline-danger btn-sm fw-bold"
-                    onClick={() => remove(billet)}
+                    onClick={() => remove(billet.ref_billet)}
                   >
                     SUPPRIMER
                   </button>

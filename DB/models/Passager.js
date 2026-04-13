@@ -1,12 +1,12 @@
 import { DataTypes } from "sequelize";
 import sequilize from "../SkyControleDB.js";
+import Billet from "./Billet.js";
 
 const Passager = sequilize.define("Passager",
    {
       id_passager: {
-         type: DataTypes.INTEGER,
+         type: DataTypes.STRING(50),
          primaryKey: true,
-         autoIncrement: true,
       },
       nom: {
          type: DataTypes.STRING(50),
@@ -37,5 +37,8 @@ const Passager = sequilize.define("Passager",
       updatedAt: true,
    },
 );
+
+Billet.belongsTo(Passager, { foreignKey: "id_passager", as: "proprietaire" });
+Passager.hasMany(Billet, { foreignKey: "id_passager", as: "mes_billets" });
 
 export default Passager;

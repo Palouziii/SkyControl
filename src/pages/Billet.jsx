@@ -10,12 +10,13 @@ export default function Billet() {
   const [currentImmat, setCurrentRef_billet] = useState(null);
   const [formData, setFormData] = useState({
         ref_billet: "",
-        passager : "",
+        nom : "",
+        prenom : "",
+        nationalite : "",
         vol : "",
         classe : "",
         siege : "",
         prix : "",
-        date: ""
   });
 
   useEffect(() => {
@@ -51,12 +52,13 @@ export default function Billet() {
   const handleEdit = (billet) => {
     setFormData({
       ref_billet: billet.ref_billet,
-      passager: billet.passager,
+      nom: billet.nom,
+      prenom: billet.prenom,
+      nationalite: billet.nationalite,
       vol: billet.vol,
       classe: billet.classe,
       siege: billet.siege,
       prix: billet.prix,
-      date: billet.date,
     });
     setCurrentRef_billet(billet.ref_billet);
     setIsEditing(true);
@@ -66,13 +68,14 @@ export default function Billet() {
   const resetForm = () => {
     setFormData({
       ref_billet: "",
-      passager: "",
+      nom: "",
+      prenom: "",
+      nationalite: "",
       vol: "",
       ref_vol: "",
       classe: "",
       siege: "",
       prix: "",
-      date: "",
     });
     setIsEditing(false);
     setCurrentRef_billet(null);

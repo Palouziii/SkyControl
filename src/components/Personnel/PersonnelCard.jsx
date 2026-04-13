@@ -17,7 +17,7 @@ export default function PersonnelCard({ personnels, remove, edit }) {
           <tbody>
             {personnels.map((personnel) => (
               <tr key={personnel.id_personnel}>
-                <td className="ps-4 fw-bold text-secondary small">
+                <td className="ps-4 fw-bold text-primary small text-primary">
                   {personnel.id_personnel}
                 </td>
                 <td>

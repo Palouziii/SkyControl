@@ -1,6 +1,8 @@
 import { Vol } from "../model/Vol";
 import API from "./API";
 
+const formateDate = (dateIso) => dateIso.split("T");
+
 export class VolService {
    async getAll() {
       const res = await API.get("/vol");

@@ -1,3 +1,4 @@
+import { log } from "node:console";
 import Passager from "../models/Passager.js";
 
 export const getPassager = async (req, res) => {
@@ -22,7 +23,7 @@ export const getPassagerById = async (req, res) => {
 
 export const createPassager = async (req, res) => {
    try {
-      const {id_passager, nom, prenom, nationalite, mail, telephone} = req.body;
+      const { id_passager, nom, prenom, nationalite, mail, telephone } = req.body;
       const newPassager = await Passager.create({
          id_passager,
          nom,
@@ -42,7 +43,7 @@ export const createPassager = async (req, res) => {
 
 export const updatePassager = async (req, res) => {
    try {
-      const {id_passager, nom, prenom, nationalite, mail, telephone } = req.body;
+      const { id_passager, nom, prenom, nationalite, mail, telephone } = req.body;
 
       const passager = await Passager.findByPk(req.params.id);
 
@@ -50,7 +51,7 @@ export const updatePassager = async (req, res) => {
          return res.status(404).json({ message: "Passager not found" });
       }
 
-      await passager.update({id_passager, nom, prenom, nationalite, mail, telephone });
+      await passager.update({ id_passager, nom, prenom, nationalite, mail, telephone });
       res.status(200).json(passager);
    } catch (error) {
       res.status(500).json({ message: error.message });
@@ -60,6 +61,8 @@ export const updatePassager = async (req, res) => {
 export const deletePassager = async (req, res) => {
    try {
       const passager = await Passager.findByPk(req.params.id);
+      console.log(passager);
+
 
       if (!passager) {
          return res.status(404).json({ message: "Passager not found" });
