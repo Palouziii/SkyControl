@@ -1,8 +1,6 @@
 import { Vol } from "../model/Vol";
 import API from "./API";
 
-const formateDate = (dateIso) => dateIso.split("T");
-
 export class VolService {
    async getAll() {
       const res = await API.get("/vol");
@@ -14,10 +12,12 @@ export class VolService {
          data.ref_vol,
          data.compagnie,
          data.depart,
-         data.arrivé,
+         data.arrivee,
          data.date_depart,
-         data.date_arrivé,
+         data.date_arrivee,
+         data.immatriculation
       );
+      console.log(newVol)
       return await API.post("/vol", newVol);
    }
 
@@ -34,9 +34,10 @@ export class VolService {
          ref_vol,
          data.compagnie,
          data.depart,
-         data.arrivé,
+         data.arrivee,
          data.date_depart,
-         data.date_arrivé
+         data.date_arrivee,
+         data.immatriculation
       );
       return await API.put(`/vol/${ref_vol}`, volModifie);
    }

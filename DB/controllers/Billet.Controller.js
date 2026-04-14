@@ -21,14 +21,14 @@ export const getBilletById = async (req, res) => {
 
 export const createBillet = async (req, res) => {
    try {
-      const { ref_billet, nom, prenom, nationalite, vol, classe, siege, prix } = req.body;
+      const { ref_billet, nom, prenom, nationalite, ref_vol, classe, siege, prix } = req.body;
 
       const newBillet = await Billet.create({
          ref_billet,
          nom,
          prenom,
          nationalite,
-         vol,
+         ref_vol,
          classe,
          siege,
          prix

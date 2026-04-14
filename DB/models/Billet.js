@@ -31,6 +31,14 @@ const Billet = sequelize.define("Billet", {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
    },
+   ref_vol: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+      reference: {
+         key: "ref_vol",
+         model: "Vols"
+      }
+   }
 }, {
    timestamps: true,
 });

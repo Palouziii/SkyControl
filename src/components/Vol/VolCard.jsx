@@ -1,7 +1,7 @@
 import "../../css/VolCard.css";
 
 export default function VolCard({ vols, edit, remove }) {
-  const formatCity = (str) => (str ? str.split(" ")[0] : "");
+  const formatCity = (str) => (str ? str.split("(")[0] : "");
 
   const formatCodeCity = (str) => {
     if (!str) return "";
@@ -69,10 +69,10 @@ export default function VolCard({ vols, edit, remove }) {
 
                     <div className="location">
                       <span className="display-5 fw-black d-block">
-                        {formatCodeCity(vol.arrivé)}
+                        {formatCodeCity(vol.arrivee)}
                       </span>
                       <span className="text-uppercase small fw-bold text-white-50">
-                        {formatCity(vol.arrivé)}
+                        {formatCity(vol.arrivee)}
                       </span>
                     </div>
                   </div>
@@ -112,7 +112,7 @@ export default function VolCard({ vols, edit, remove }) {
                         Arrivée
                       </small>
                       <span className="h4 fw-black mb-0">
-                        {formatTime(vol.date_arrivé)}
+                        {formatTime(vol.date_arrivee)}
                       </span>
                     </div>
                   </div>

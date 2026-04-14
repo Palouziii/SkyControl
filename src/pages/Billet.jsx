@@ -13,9 +13,10 @@ export default function Billet() {
         nom : "",
         prenom : "",
         nationalite : "",
-        vol : "",
+        ref_vol : "",
         classe : "",
         siege : "",
+        bagage : "",
         prix : "",
   });
 
@@ -55,9 +56,10 @@ export default function Billet() {
       nom: billet.nom,
       prenom: billet.prenom,
       nationalite: billet.nationalite,
-      vol: billet.vol,
+      ref_vol: billet.ref_vol,
       classe: billet.classe,
       siege: billet.siege,
+      bagage: billet.bagage,
       prix: billet.prix,
     });
     setCurrentRef_billet(billet.ref_billet);
@@ -71,10 +73,10 @@ export default function Billet() {
       nom: "",
       prenom: "",
       nationalite: "",
-      vol: "",
       ref_vol: "",
       classe: "",
       siege: "",
+      bagage: "",
       prix: "",
     });
     setIsEditing(false);

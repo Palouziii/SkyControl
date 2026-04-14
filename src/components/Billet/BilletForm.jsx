@@ -77,7 +77,6 @@ export default function BilletForm({
             />
           </div>
 
-          {/* SÉLECTION VOL */}
           <div className="col-md-3">
             <label className="label-form-prestige">SÉLECTION DU VOL</label>
             <select
@@ -122,10 +121,10 @@ export default function BilletForm({
               required
             >
               <option value="">Sélectionner le poids...</option>
-              <option value="12">Cabine uniquement (≤ 12 Kg)</option>
-              <option value="15">Soute Light (≤ 15 Kg)</option>
-              <option value="23">Soute Standard (≤ 23 Kg)</option>
-              <option value="32">Soute Premium (≤ 32 Kg)</option>
+              <option value="Cabine uniquement (≤ 12 Kg)">Cabine uniquement (≤ 12 Kg)</option>
+              <option value="Soute Light (≤ 15 Kg)">Soute Light (≤ 15 Kg)</option>
+              <option value="Soute Standard (≤ 23 Kg)">Soute Standard (≤ 23 Kg)</option>
+              <option value="Soute Premium (≤ 32 Kg)">Soute Premium (≤ 32 Kg)</option>
             </select>
           </div>
 

@@ -1,4 +1,3 @@
-import { log } from "node:console";
 import Passager from "../models/Passager.js";
 
 export const getPassager = async (req, res) => {

@@ -12,9 +12,10 @@ export default function Vol() {
     ref_vol: "",
     compagnie: "",
     depart: "",
-    arrivé: "",
+    arrivee: "",
     date_depart: "",
-    date_arrivé: "",
+    date_arrivee: "",
+    immatriculation: ""
   });
 
   useEffect(() => {
@@ -47,9 +48,10 @@ export default function Vol() {
       ref_vol: "", 
       compagnie: "", 
       depart: "", 
-      arrivé: "", 
+      arrivee: "", 
       date_depart: "", 
-      date_arrivé: "" 
+      date_arrivee: "" ,
+      immatriculation: ""
     });
     setIsEditing(false);
     setCurrentRef_vol(null);
@@ -65,9 +67,10 @@ export default function Vol() {
       ref_vol: vol.ref_vol,
       compagnie: vol.compagnie,
       depart: vol.depart,
-      arrive: vol.arrive,
+      arrivee: vol.arrivee,
       date_depart: vol.date_depart,
-      date_arrive: vol.date_arrive,
+      date_arrivee: vol.date_arrivee,
+      immatriculation: vol.immatriculation,
     });
     setCurrentRef_vol(vol.ref_vol);
     setIsEditing(true);
@@ -102,6 +105,7 @@ export default function Vol() {
           add={add}
           onCancel={() => { setShowAdd(false); resetForm(); }}
           onEdit={isEditing}
+          showAvion={showAdd}
         />
       )}
 

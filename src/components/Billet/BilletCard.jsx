@@ -26,7 +26,7 @@ export default function BilletCard({ billets, remove, edit }) {
                 <td className="fw-medium">{billet.prenom}</td>
                 <td className="fw-medium">{billet.nationalite}</td>
                 <td>
-                  <span className="badge bg-dark px-2">{billet.vol}</span>
+                  <span className="badge bg-dark px-2">{billet.ref_vol}</span>
                 </td>
                 <td>
                   <span className={`badge-classe-simple ${billet.classe.replace(" ", "-").toLowerCase()}`}>

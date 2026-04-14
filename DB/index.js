@@ -7,6 +7,7 @@ import PersonnelRouter from "./routes/Personnel.route.js";
 import VolRouter from "./routes/Vol.route.js";
 import BilletRouter from "./routes/Billet.route.js";
 import BagageRouter from "./routes/Bagage.route.js";
+import UserRouter from "./routes/User.route.js"
 import cors from "cors";
 
 dotenv.config()
@@ -23,6 +24,7 @@ app.use("/personnel", PersonnelRouter);
 app.use("/vol", VolRouter);
 app.use("/billet", BilletRouter);
 app.use("/bagage", BagageRouter);
+app.use("/user", UserRouter);
 
 sequelize.sync().then(() => {
    app.listen(process.env.PORT, () => {
