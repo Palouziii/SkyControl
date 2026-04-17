@@ -51,7 +51,6 @@ export default function Login() {
     <div className="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
       <div className="card shadow-lg rounded-4 overflow-hidden" style={{ maxWidth: "900px", width: "100%" }}>
         <div className="row g-0">         
-          {/* Section Gauche (Design) */}
           <div className="col-md-5 bg-dark text-white d-flex flex-column justify-content-center p-5 text-center">
             <h2 className="fw-black mb-2 tracking-tighter">SKYCONTROL</h2>
             <p className="text-muted small mb-4 text-uppercase tracking-widest" style={{fontSize: '0.7rem'}}>L'élite de l'aérien</p>
@@ -67,7 +66,6 @@ export default function Login() {
             </button>
           </div>
 
-          {/* Section Droite (Formulaire) */}
           <div className="col-md-7 bg-white p-5">
             <h3 className="fw-bold text-uppercase mb-4">
               {isRegistering ? "Inscription" : "Connexion"}
