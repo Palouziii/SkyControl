@@ -100,7 +100,7 @@ export default function Layout({ children }) {
               <NavLink to="#" className="text-decoration-none text-muted">
                 Copyright © 2026 Loan GASS 
               </NavLink>
-              <span className="text-secondary">v26.7</span>
+              <span className="text-secondary"> v26.7</span>
             </div>
           </div>
         </footer>
