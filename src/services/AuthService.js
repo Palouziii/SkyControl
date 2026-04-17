@@ -1,4 +1,4 @@
-import api from "./api";
+import api from "./API";
 
 class AuthService {
    async register(data) {

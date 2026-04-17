@@ -1,8 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "../css/SideBar.css";
 import "../css/Footer.css";
 
 export default function Layout({ children }) {
+  const { user, logout, isAdmin } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
   return (
     <div className="layout-container">
       <header className="sidebar-container shadow">
@@ -20,10 +29,25 @@ export default function Layout({ children }) {
 
         <hr className="opacity-25" />
 
+        {/* Infos utilisateur connecté */}
+        <div className="px-2 mb-3">
+          <div className="text-white-50 small text-uppercase" style={{ fontSize: "0.7rem", letterSpacing: "1px" }}>
+            Connecté en tant que
+          </div>
+          <div className="text-white fw-bold" style={{ fontSize: "0.85rem" }}>
+            {user?.prenom || user?.login}
+          </div>
+          <span
+            className={`badge mt-1 ${isAdmin ? "bg-warning text-dark" : "bg-secondary"}`}
+            style={{ fontSize: "0.65rem" }}
+          >
+            {user?.role}
+          </span>
+        </div>
+
+        <hr className="opacity-25" />
+
         <nav className="nav nav-pills flex-column mb-auto gap-2">
-          <NavLink to="/user" className="nav-link">
-            <i className="bi bi-box-arrow-in-right me-3"></i> Login
-          </NavLink>             
           <NavLink to="/" className="nav-link">
             <i className="bi bi-grid-1x2 me-3"></i> Home
           </NavLink>
@@ -39,10 +63,21 @@ export default function Layout({ children }) {
           <NavLink to="/passager" className="nav-link">
             <i className="bi bi-person me-3"></i> Passagers
           </NavLink>
-          <NavLink to="/personnel" className="nav-link">
-            <i className="bi bi-people me-3"></i> Personnels
-          </NavLink>      
+          {isAdmin && (
+            <NavLink to="/personnel" className="nav-link">
+              <i className="bi bi-people me-3"></i> Personnels
+            </NavLink>
+          )}
         </nav>
+
+        <hr className="opacity-25" />
+
+        <button
+          onClick={handleLogout}
+          className="btn btn-outline-danger btn-sm w-100 fw-bold"
+        >
+          <i className="bi bi-box-arrow-right me-2"></i> Déconnexion
+        </button>
 
         <div
           className="mt-4 ps-2 opacity-50 small"
