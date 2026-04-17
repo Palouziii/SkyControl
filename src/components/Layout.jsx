@@ -21,6 +21,9 @@ export default function Layout({ children }) {
         <hr className="opacity-25" />
 
         <nav className="nav nav-pills flex-column mb-auto gap-2">
+          <NavLink to="/user" className="nav-link">
+            <i className="bi bi-box-arrow-in-right me-3"></i> Login
+          </NavLink>             
           <NavLink to="/" className="nav-link">
             <i className="bi bi-grid-1x2 me-3"></i> Home
           </NavLink>
@@ -38,7 +41,7 @@ export default function Layout({ children }) {
           </NavLink>
           <NavLink to="/personnel" className="nav-link">
             <i className="bi bi-people me-3"></i> Personnels
-          </NavLink>
+          </NavLink>      
         </nav>
 
         <div

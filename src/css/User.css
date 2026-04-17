@@ -1,0 +1,25 @@
+.form-control-prestige {
+    border: none;
+    border-bottom: 2px solid #e9ecef;
+    border-radius: 0;
+    padding: 10px 5px;
+    width: 100%;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.form-control-prestige:focus {
+    border-bottom-color: #0d6efd;
+}
+
+.label-form-prestige {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+.fw-black {
+    font-weight: 900;
+}

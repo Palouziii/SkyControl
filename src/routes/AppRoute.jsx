@@ -6,6 +6,7 @@ import Billet from "../pages/Billet";
 import Passager from "../pages/Passager";
 import Personnel from "../pages/Personnel";
 import Vol from "../pages/Vol";
+import User from "../pages/User"
 
 export default function AppRoute() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoute() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/User" element={<User />}></Route>
           <Route path="/Avion" element={<Avion />}></Route>
           <Route path="/Billet" element={<Billet />}></Route>
           <Route path="/Passager" element={<Passager />}></Route>

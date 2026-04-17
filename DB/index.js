@@ -24,7 +24,7 @@ app.use("/personnel", PersonnelRouter);
 app.use("/vol", VolRouter);
 app.use("/billet", BilletRouter);
 app.use("/bagage", BagageRouter);
-app.use("/user", UserRouter);
+app.use("/users", UserRouter);
 
 sequelize.sync().then(() => {
    app.listen(process.env.PORT, () => {
