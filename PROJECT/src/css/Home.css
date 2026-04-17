@@ -1,0 +1,34 @@
+.hero-container {
+   height: 400px;
+   transition: transform 0.3s ease;
+}
+
+.hero-overlay {
+   background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.feature-card {
+   transition: all 0.3s ease-in-out;
+   border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.feature-card:hover {
+   transform: translateY(-10px);
+   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.feature-card img {
+   transition: transform 0.5s ease;
+}
+
+.feature-card:hover img {
+   transform: scale(1.05);
+}
+
+.custom-border-left {
+   border-left: 5px solid #0d6efd;
+}
+
+.object-fit-cover {
+   object-fit: cover;
+}
